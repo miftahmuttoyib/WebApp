@@ -47,4 +47,8 @@ public class GoodsService {
     public void deleteGoods(String id) {
 
     }
+
+    public void test2() {
+        String apakahAkanBerubah = "?";
+    }
 }
