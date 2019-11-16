@@ -12,6 +12,6 @@ public class DynamicObjectService {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public void saveObjectAttribute(List<String> rawTypeObject) {
-
+        String test = "";
     }
 }
