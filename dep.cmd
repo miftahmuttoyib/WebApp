@@ -1,5 +1,5 @@
 :: set my_date=%date:~10,14%-%date:~4,2%-%date:~7,2%
-set project_dir=D:\Project\WebApp\WebApp
+set project_dir=D:\Project\WebApp\WebAppRepo
 set source_war=%project_dir%\build\libs
 set target_server=C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps
 :: set log_file = C:\Program Files\Apache Software Foundation\Tomcat 7.0\logs\catalina.%my_date%.log

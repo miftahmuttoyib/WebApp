@@ -1,6 +1,7 @@
 package bo.BOImplement;
 
 import bo.GoodsBO;
+import dao.GoodsDAO;
 import obj.Goods;
 import org.jooq.DSLContext;
 import org.jooq.Record;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class GoodsBOImp implements GoodsBO {
+public class GoodsBOImp extends GoodsDAO implements GoodsBO {
 
     @Override
     public Goods getById(String id) {
@@ -31,32 +32,7 @@ public class GoodsBOImp implements GoodsBO {
 
     @Override
     public List<Goods> getAllGoods() {
-        String userName = "root";
-        String password = "r00t";
-        String url = "jdbc:mysql://localhost:3306/webapp";
-        List<Goods> resultList = new ArrayList<>();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(url, userName, password);
-
-            DSLContext create = DSL.using(conn, SQLDialect.MYSQL);
-            Result<Record> result = create.select().from(Goods.TABLE_NAME).fetch();
-//            List<Goods> resultList = new ArrayList<>();
-            for (Record item : result) {
-                Goods resultItem = new Goods();
-                resultItem.setId((String) item.getValue(IdName.ColumnName.ID));
-                resultItem.setName((String) item.getValue(IdName.ColumnName.NAME));
-                resultItem.setCode((String) item.getValue(Goods.ColumnName.CODE));
-                resultItem.setPrice(((BigDecimal) item.getValue(Goods.ColumnName.PRICE)).doubleValue());
-                resultItem.setLocationCode((String) item.getValue(Goods.ColumnName.LOCATION_CODE));
-                resultItem.setStock(((BigDecimal) item.getValue(Goods.ColumnName.STOCK)).doubleValue());
-                resultList.add(resultItem);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return resultList;
-//        return extractFile();
+        return getAll();
     }
 
     private List<Goods> extractFile() {

@@ -13,3 +13,31 @@
   <artifactId>jooq-codegen</artifactId>
   <version>3.12.0</version>
 </dependency>
+
+
+function executeTask(x)
+    m.add(x);
+    if (a > 0) then
+        if(m.size() == 1)
+            a.execute(m);
+        else
+            y = Priority.compare(m);
+            if (y > 1) then
+                y = SJF.compare(m);
+                if(y > 1) then
+                    y = FCFS.compare(m);
+                    a.execute(y.getFirst());
+                    m.remove(y);
+                else
+                    a.execute(y);
+                    m.remove(y);
+            else
+                a.execute(y);
+                m.remove(y);
+            end if
+        end if
+    end if
+        if m.size() > 0 then
+        executeTask(m);
+    end if
+end function

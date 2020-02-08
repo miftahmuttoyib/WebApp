@@ -38,7 +38,6 @@ public class GoodsService {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public List<Goods> saveListGoods(List<Goods> goodsList) {
-        goodsList.toArray();
         return goodsList;
     }
 

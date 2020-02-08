@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c76b646c-b337-41af-9af1-d4bd5756be66" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/obj/Test2.java" afterDir="false" />
+    <list default="true" id="c76b646c-b337-41af-9af1-d4bd5756be66" name="Default Changelist" comment="test new file">
+      <change afterPath="$PROJECT_DIR$/lib/persistence-api-1.0.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bo/BOImplement/ProblemBOImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bo/ProblemBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/GoodsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ProblemDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helper/Common.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helper/WorkingType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helper/mapper/GoodsHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/helper/mapper/ProblemHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/obj/Problem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/obj/TestMathLab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/ProblemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dep.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/dep.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/note.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/setw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bo/BOImplement/GoodsBOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/BOImplement/GoodsBOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/obj/DynamicObjec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/obj/DynamicObjec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/DynamicObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/DynamicObjectService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/GoodsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +67,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="WebApp" type="f1a62948:ProjectNode" />
-                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="WebApp" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
@@ -72,6 +87,7 @@
       <list>
         <option value="Singleton" />
         <option value="JavaFXApplication" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -94,6 +110,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
@@ -112,10 +129,10 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37054086" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -134,7 +151,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Remote.Debug">
+  <component name="RunManager">
     <configuration name="WebApp [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -268,7 +285,16 @@
       <workItem from="1572347049805" duration="991000" />
       <workItem from="1573406791150" duration="244000" />
       <workItem from="1573886522907" duration="1947000" />
-      <workItem from="1573903809804" duration="720000" />
+      <workItem from="1573903809804" duration="2125000" />
+      <workItem from="1573910776259" duration="638000" />
+      <workItem from="1574075956960" duration="10514000" />
+      <workItem from="1574161665281" duration="1555000" />
+      <workItem from="1574447491707" duration="1781000" />
+      <workItem from="1575809297154" duration="866000" />
+      <workItem from="1576080522010" duration="1800000" />
+      <workItem from="1580542504321" duration="8902000" />
+      <workItem from="1580694348380" duration="4327000" />
+      <workItem from="1581188020246" duration="770000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1573904250209</created>
@@ -284,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573904428122</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="test new file">
+      <created>1573904618194</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573904618194</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,13 +331,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test" />
     <MESSAGE value="test new file" />
     <option name="LAST_COMMIT_MESSAGE" value="test new file" />
