@@ -9,8 +9,7 @@ import java.util.List;
 public class ProblemBOImp extends ProblemDAO implements ProblemBO {
     @Override
     public List<Problem> getAllProblem() {
-//        return getAll();
-        return null;
+        return getAll();
     }
 
     @Override

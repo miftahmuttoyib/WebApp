@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c76b646c-b337-41af-9af1-d4bd5756be66" name="Default Changelist" comment="test new file">
-      <change afterPath="$PROJECT_DIR$/lib/persistence-api-1.0.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bo/BOImplement/ProblemBOImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bo/ProblemBO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/GoodsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ProblemDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helper/Common.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helper/WorkingType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helper/mapper/GoodsHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/helper/mapper/ProblemHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/obj/Problem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/obj/TestMathLab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/ProblemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c76b646c-b337-41af-9af1-d4bd5756be66" name="Default Changelist" comment="add annotation lib&#10;automatic object map">
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_3_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_errorprone_error_prone_annotations_2_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_failureaccess_1_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_guava_27_1_jre.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_j2objc_j2objc_annotations_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_xml_bind_jaxb_core_2_2_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_xml_bind_jaxb_impl_2_2_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_activation_activation_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_xml_bind_jaxb_api_2_2_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_checkerframework_checker_qual_2_5_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_mojo_animal_sniffer_annotations_1_17.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/WebApp.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/WebApp.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dep.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/dep.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note.txt" beforeDir="false" afterPath="$PROJECT_DIR$/note.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/setw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/BOImplement/GoodsBOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/BOImplement/GoodsBOImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/obj/DynamicObjec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/obj/DynamicObjec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/DynamicObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/DynamicObjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/GoodsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/GoodsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bo/BOImplement/ProblemBOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/BOImplement/ProblemBOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/GoodsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/GoodsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ProblemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ProblemDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/obj/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/obj/Problem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stdc/IdName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stdc/IdName.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,6 +92,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -111,6 +114,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
@@ -120,7 +124,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567161326014" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AwesomeProject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/persistence-api-1.0.2.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -129,12 +133,15 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.37054086" />
+    <property name="project.structure.side.proportion" value="0.20990874" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\WebApp\WebAppRepo" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Miftah\New\WebApp\src\main\java" />
     </key>
@@ -151,8 +158,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="WebApp [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.WebAppRepo [war]">
+    <configuration name="WebAppRepo [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -171,7 +178,26 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="WebApp [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WebAppRepo [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="WebAppRepo [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -190,12 +216,31 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="build war" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="WebAppRepo [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="WebAppRepo [war]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -204,7 +249,7 @@
             <option value="war" />
           </list>
         </option>
-        <option name="vmOptions" value="" />
+        <option name="vmOptions" />
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
@@ -234,16 +279,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.build war" />
-      <item itemvalue="Gradle.WebApp [clean]" />
-      <item itemvalue="Gradle.WebApp [buildDependents]" />
+      <item itemvalue="Gradle.WebAppRepo [build]" />
+      <item itemvalue="Gradle.WebAppRepo [buildDependents]" />
+      <item itemvalue="Gradle.WebAppRepo [clean]" />
+      <item itemvalue="Gradle.WebAppRepo [dependencies]" />
       <item itemvalue="Remote.Debug" />
+      <item itemvalue="Gradle.WebAppRepo [war]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.build war" />
-        <item itemvalue="Gradle.WebApp [buildDependents]" />
-        <item itemvalue="Gradle.WebApp [clean]" />
+        <item itemvalue="Gradle.WebAppRepo [war]" />
+        <item itemvalue="Gradle.WebAppRepo [buildDependents]" />
+        <item itemvalue="Gradle.WebAppRepo [clean]" />
+        <item itemvalue="Gradle.WebAppRepo [dependencies]" />
+        <item itemvalue="Gradle.WebAppRepo [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +343,8 @@
       <workItem from="1576080522010" duration="1800000" />
       <workItem from="1580542504321" duration="8902000" />
       <workItem from="1580694348380" duration="4327000" />
-      <workItem from="1581188020246" duration="770000" />
+      <workItem from="1581188020246" duration="3943000" />
+      <workItem from="1581192405616" duration="4075000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1573904250209</created>
@@ -317,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573904618194</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add new lib annotation Column">
+      <created>1581189031010</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1581189031010</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,7 +400,20 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test" />
     <MESSAGE value="test new file" />
-    <option name="LAST_COMMIT_MESSAGE" value="test new file" />
+    <MESSAGE value="add new lib annotation Column" />
+    <MESSAGE value="add annotation lib&#10;automatic object map" />
+    <option name="LAST_COMMIT_MESSAGE" value="add annotation lib&#10;automatic object map" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/GoodsService.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

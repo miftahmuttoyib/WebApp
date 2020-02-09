@@ -2,6 +2,9 @@ package obj;
 
 import stdc.IdName;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+
 public class Problem extends IdName {
     public final static String TABLE_NAME = "problem";
     public static class ColumnName {
@@ -10,8 +13,11 @@ public class Problem extends IdName {
         public final static String EXECUTION_TIME = "execution_time";
     }
 
+    @Column(name = ColumnName.PRIORITY)
     private int priority;
+    @Column(name = ColumnName.WORKING_TYPE)
     private String workingType = "";
+    @Column(name = ColumnName.EXECUTION_TIME)
     private int executionTime;
 
     public Problem() {
