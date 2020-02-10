@@ -10,11 +10,12 @@ import java.util.List;
 
 @Path("problem")
 public class ProblemService {
+    private ProblemBO problemBO = new ProblemBOImp();
+
     @GET
     @Path("get/all")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Problem> selectAllGoods() {
-        ProblemBO problemBO = new ProblemBOImp();
         return problemBO.getAllProblem();
     }
 
@@ -22,23 +23,20 @@ public class ProblemService {
     @Path("get")
     @Produces(MediaType.APPLICATION_JSON)
     public Problem getGoods(String id) {
-        ProblemBO problemBO = new ProblemBOImp();
         return problemBO.getProblemById(id);
     }
 
     @POST
     @Path("save")
     @Produces(MediaType.APPLICATION_JSON)
-    public void saveGoods() {
-        ProblemBO problemBO = new ProblemBOImp();
-//        return problemBO.getAllProblem();
+    public void saveProblem(Problem problem) {
+        problemBO.saveProblem(problem);
     }
 
     @DELETE
     @Path("save")
     @Produces(MediaType.APPLICATION_JSON)
     public void saveGoods(String a) {
-        ProblemBO problemBO = new ProblemBOImp();
         problemBO.getAllProblem();
     }
 }

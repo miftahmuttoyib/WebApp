@@ -17,6 +17,11 @@ public class ProblemBOImp extends ProblemDAO implements ProblemBO {
         return null;
     }
 
+    @Override
+    public void saveProblem(Problem problem) {
+        save(problem);
+    }
+
 //    @Override
 //    public Problem getProblemById(String id) {
 //        return getByid();

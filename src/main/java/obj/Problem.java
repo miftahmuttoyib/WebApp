@@ -3,7 +3,6 @@ package obj;
 import stdc.IdName;
 
 import javax.persistence.Column;
-import javax.persistence.Table;
 
 public class Problem extends IdName {
     public final static String TABLE_NAME = "problem";

@@ -1,6 +1,10 @@
 package dao;
 
-import org.jooq.*;
+
+import org.jooq.DSLContext;
+import org.jooq.Record;
+import org.jooq.Result;
+import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 
 import java.sql.Connection;
