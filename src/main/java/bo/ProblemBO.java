@@ -9,4 +9,6 @@ public interface ProblemBO {
     Problem getProblemById(String id);
 
     void saveProblem(Problem problem);
+
+    void deleteProblem(String id);
 }

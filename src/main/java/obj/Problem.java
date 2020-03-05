@@ -1,11 +1,14 @@
 package obj;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import schema.tables.records.ProblemRecord;
 import stdc.IdName;
 
 import javax.persistence.Column;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Problem extends IdName {
-    public final static String TABLE_NAME = "problem";
+    public static final String TABLE_NAME = "problem";
     public static class ColumnName {
         public final static String PRIORITY = "priority";
         public final static String WORKING_TYPE = "working_type";
@@ -23,7 +26,7 @@ public class Problem extends IdName {
 
     }
     public Problem(String id) {
-        setId(id);
+        setStringId(id);
     }
 
     public int getPriority() {
@@ -45,5 +48,17 @@ public class Problem extends IdName {
     }
     public void setExecutionTime(int executionTime) {
         this.executionTime = executionTime;
+    }
+
+    /**
+     * @param emptyRecord modified here.
+     *                    pass by reference
+     */
+    public void mapToRecord(ProblemRecord emptyRecord) {
+        emptyRecord.setId(this.getId());
+        emptyRecord.setName(this.getName());
+        emptyRecord.setPriority(this.getPriority());
+        emptyRecord.setWorkingType(this.getWorkingType());
+        emptyRecord.setExecutionTime(this.getExecutionTime());
     }
 }

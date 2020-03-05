@@ -19,7 +19,7 @@ public class ProblemHelper {
 
     private static Problem map(Record item) {
         Problem resultItem = new Problem();
-        resultItem.setId((String) item.getValue(IdName.ColumnName.ID));
+        resultItem.setId((Integer) item.getValue(IdName.ColumnName.ID));
         resultItem.setName((String) item.getValue(IdName.ColumnName.NAME));
         resultItem.setPriority((Integer) item.getValue(Problem.ColumnName.PRIORITY));
         resultItem.setWorkingType((String) item.getValue(Problem.ColumnName.WORKING_TYPE));

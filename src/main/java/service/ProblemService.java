@@ -15,14 +15,14 @@ public class ProblemService {
     @GET
     @Path("get/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Problem> selectAllGoods() {
+    public List<Problem> selectAllProblem() {
         return problemBO.getAllProblem();
     }
 
     @GET
     @Path("get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Problem getGoods(String id) {
+    public Problem getGoods(@QueryParam("id") String id) {
         return problemBO.getProblemById(id);
     }
 
@@ -34,9 +34,9 @@ public class ProblemService {
     }
 
     @DELETE
-    @Path("save")
+    @Path("delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void saveGoods(String a) {
-        problemBO.getAllProblem();
+    public void delete(@PathParam("id") String id) {
+        problemBO.deleteProblem(id);
     }
 }

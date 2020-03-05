@@ -111,7 +111,7 @@
             <packageName>schema</packageName>
 
             <!-- The destination directory of your generated classes -->
-            <directory>D:/Project/WebApp/WebAppRepo/src/main/java/schema</directory>
+            <directory>D:/Project/WebApp/WebAppRepo/src/main/java</directory>
         </target>
     </generator>
 </configuration>

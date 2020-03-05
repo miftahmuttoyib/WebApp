@@ -6,9 +6,13 @@ import obj.Problem;
 
 import java.util.List;
 
+import static helper.Common.mapWorkingType;
+
 public class ProblemBOImp extends ProblemDAO implements ProblemBO {
     @Override
     public List<Problem> getAllProblem() {
+//        List<Problem> resultList = getAll();
+//        mapWorkingType(resultList);
         return getAll();
     }
 
@@ -20,6 +24,11 @@ public class ProblemBOImp extends ProblemDAO implements ProblemBO {
     @Override
     public void saveProblem(Problem problem) {
         save(problem);
+    }
+
+    @Override
+    public void deleteProblem(String id) {
+        delete(id);
     }
 
 //    @Override
