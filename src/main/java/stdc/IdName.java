@@ -6,7 +6,7 @@ import javax.persistence.Column;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class IdName {
-    public static class ColumnName {
+    public static final class ColumnName {
         public final static String ID = "id";
         public final static String NAME = "name";
     }

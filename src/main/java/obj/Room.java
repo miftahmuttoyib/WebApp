@@ -25,7 +25,7 @@ public class Room extends IdName {
 
     }
 
-    private List<Facilities> facilitesList = new ArrayList<>();
+    private List<Facilities> facilitiesList = new ArrayList<>();
 
     public static class RoomFacilities {
         @Column(name = TABLE_NAME+"_"+ID)
@@ -53,17 +53,17 @@ public class Room extends IdName {
         }
     }
 
-    public List<Facilities> getFacilitesList() {
-        return facilitesList;
+    public List<Facilities> getFacilitiesList() {
+        return facilitiesList;
     }
-    public void setFacilitesList(List<Facilities> facilitesList) {
-        this.facilitesList = facilitesList;
+    public void setFacilitiesList(List<Facilities> facilitiesList) {
+        this.facilitiesList = facilitiesList;
     }
     public void addFacilities(Facilities facilities) {
-        this.facilitesList.add(facilities);
+        this.facilitiesList.add(facilities);
     }
     public void addAllFacilities(List<Facilities> facilitiesList) {
-        this.facilitesList.addAll(facilitiesList);
+        this.facilitiesList.addAll(facilitiesList);
     }
 
     public void mapToRecord(RoomRecord newRecord) {
@@ -73,10 +73,10 @@ public class Room extends IdName {
 
     public List<RoomFacilitiesRecord> createChildRecord(DSLContext db) {
         List<RoomFacilitiesRecord> resultList = new ArrayList<>();
-        for (Facilities facilities : this.getFacilitesList()) {
+        for (Facilities facilities : this.getFacilitiesList()) {
             RoomFacilitiesRecord childRecord = db.newRecord(ROOM_FACILITIES);
-            childRecord.setRoomId(facilities.getId());
-            childRecord.setFacilitiesId(this.getId());
+            childRecord.setRoomId(this.getId());
+            childRecord.setFacilitiesId(facilities.getId());
             resultList.add(childRecord);
         }
         return resultList;

@@ -15,7 +15,6 @@ public class ProblemDAO extends DAO {
 
     protected void save(Problem problem) {
         ProblemRecord newRecord = db.newRecord(PROBLEM, problem);
-//        problem.mapToRecord(newRecord);
         newRecord.store();
     }
 

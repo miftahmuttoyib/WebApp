@@ -9,7 +9,7 @@ import javax.persistence.Column;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Problem extends IdName {
     public static final String TABLE_NAME = "problem";
-    public static class ColumnName {
+    public static final class ColumnName {
         public final static String PRIORITY = "priority";
         public final static String WORKING_TYPE = "working_type";
         public final static String EXECUTION_TIME = "execution_time";

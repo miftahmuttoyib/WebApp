@@ -17,7 +17,7 @@ import static stdc.IdName.ColumnName.ID;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Facilities extends IdName {
     public static final String TABLE_NAME = "facilities";
-    public static class ColumnName {
+    public static final class ColumnName {
         public final static String FACILITIES_TYPE = "facilities_type";
 
     }

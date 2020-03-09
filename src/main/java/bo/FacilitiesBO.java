@@ -1,7 +1,6 @@
 package bo;
 
 import obj.Facilities;
-import service.FacilitiesService;
 
 import java.util.List;
 
