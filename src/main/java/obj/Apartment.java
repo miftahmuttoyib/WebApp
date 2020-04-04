@@ -8,6 +8,7 @@ import stdc.IdName;
 import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static schema.Tables.APARTMENT_ROOM;
@@ -16,26 +17,33 @@ import static stdc.IdName.ColumnName.ID;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Apartment extends IdName {
     public static final String TABLE_NAME = "apartment";
+    public static final String FOREIGN_KEY_NAME = TABLE_NAME + "_" + ID;
 
     public static class ColumnName {
         public static final String CODE = "code";
-        public static final String FLOOR = Floor.TABLE_NAME + "_" + ID;
-        public static final String BUILDING = Building.TABLE_NAME + "_" + ID;
+        public static final String FLOOR = Floor.FOREIGN_KEY_NAME;
+        public static final String BUILDING = Building.FOREIGN_KEY_NAME;
     }
 
     public Apartment() {
 
     }
 
+    @Column(name = ColumnName.CODE)
     private String code = "";
+    @Column(name = ColumnName.BUILDING)
+    private int buildingId;
+    @Column(name = ColumnName.FLOOR)
+    private int floorId;
+
     private Floor floor = new Floor();
     private Building building = new Building();
     private List<Room> roomList = new ArrayList<>();
 
     public static class ApartmentRoom {
-        @Column(name = TABLE_NAME+"_"+ ID)
+        @Column(name = FOREIGN_KEY_NAME)
         private int apartmentId;
-        @Column(name = Room.TABLE_NAME+"_"+ ID)
+        @Column(name = Room.FOREIGN_KEY_NAME)
         private int roomId;
 
         public int getApartmentId() {
@@ -60,9 +68,20 @@ public class Apartment extends IdName {
         this.code = code;
     }
 
-    public int getFloorId() {
-        return this.floor.getId();
+    public int getBuildingId() {
+        return buildingId;
     }
+    public void setBuildingId(int buildingId) {
+        this.buildingId = buildingId;
+    }
+
+    public int getFloorId() {
+        return floorId;
+    }
+    public void setFloorId(int floorId) {
+        this.floorId = floorId;
+    }
+
     public Floor getFloor() {
         return floor;
     }
@@ -70,9 +89,6 @@ public class Apartment extends IdName {
         this.floor = floor;
     }
 
-    public int getBuildingId() {
-        return this.building.getId();
-    }
     public Building getBuilding() {
         return building;
     }
@@ -82,6 +98,10 @@ public class Apartment extends IdName {
 
     public List<Room> getRoomList() {
         return roomList;
+    }
+    public Room getRoom(int roomId) {
+        Optional<Room> optItem = this.roomList.stream().filter(f -> f.getId() == roomId).findAny();
+        return optItem.orElse(null);
     }
     public void setRoomList(List<Room> roomList) {
         this.roomList = roomList;

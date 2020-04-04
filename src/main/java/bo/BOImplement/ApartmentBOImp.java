@@ -14,8 +14,8 @@ public class ApartmentBOImp extends ApartmentDAO implements ApartmentBO {
     }
 
     @Override
-    public Apartment getApartmentById(String id) {
-        return null;
+    public Apartment getApartmentById(int id) {
+        return get(id);
     }
 
     @Override

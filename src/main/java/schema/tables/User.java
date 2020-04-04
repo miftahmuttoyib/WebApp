@@ -15,7 +15,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -42,7 +42,7 @@ import schema.tables.records.UserRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class User extends TableImpl<UserRecord> {
 
-    private static final long serialVersionUID = 96621183;
+    private static final long serialVersionUID = 641423284;
 
     /**
      * The reference instance of <code>webapp.user</code>
@@ -81,6 +81,11 @@ public class User extends TableImpl<UserRecord> {
      * The column <code>webapp.user.email</code>.
      */
     public final TableField<UserRecord, String> EMAIL = createField(DSL.name("email"), org.jooq.impl.SQLDataType.VARCHAR(150).nullable(false), this, "");
+
+    /**
+     * The column <code>webapp.user.apartment_id</code>.
+     */
+    public final TableField<UserRecord, Integer> APARTMENT_ID = createField(DSL.name("apartment_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * Create a <code>webapp.user</code> table reference
@@ -122,7 +127,7 @@ public class User extends TableImpl<UserRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.USER_PRIMARY, Indexes.USER_USERNAME);
+        return Arrays.<Index>asList(Indexes.USER_PRIMARY, Indexes.USER_USER_IBFK_1_IDX, Indexes.USER_USERNAME);
     }
 
     @Override
@@ -138,6 +143,15 @@ public class User extends TableImpl<UserRecord> {
     @Override
     public List<UniqueKey<UserRecord>> getKeys() {
         return Arrays.<UniqueKey<UserRecord>>asList(Keys.KEY_USER_PRIMARY, Keys.KEY_USER_USERNAME);
+    }
+
+    @Override
+    public List<ForeignKey<UserRecord, ?>> getReferences() {
+        return Arrays.<ForeignKey<UserRecord, ?>>asList(Keys.USER_IBFK_1);
+    }
+
+    public Apartment apartment() {
+        return new Apartment(this, Keys.USER_IBFK_1);
     }
 
     @Override
@@ -167,11 +181,11 @@ public class User extends TableImpl<UserRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, String, String, String, String> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Integer, String, String, String, String, Integer> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 }

@@ -24,6 +24,13 @@ public class ApartmentDAO extends DAO {
         return resultList;
     }
 
+    protected Apartment get(int id) {
+        Apartment apartment = db.select().from(APARTMENT).where(APARTMENT.ID.eq(id)).fetchAny().into(Apartment.class);
+        List<Apartment.ApartmentRoom> resultChildList = db.select().from(APARTMENT_ROOM).where(APARTMENT_ROOM.APARTMENT_ID.eq(id)).fetch().into(Apartment.ApartmentRoom.class);
+        apartment.childMap(resultChildList, roomDAO.getAll());
+        return apartment;
+    }
+
     protected void save(Apartment apartment) {
         ApartmentRecord newRecord = db.newRecord(APARTMENT, apartment);
         newRecord.store();

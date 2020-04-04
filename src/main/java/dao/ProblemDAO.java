@@ -13,6 +13,10 @@ public class ProblemDAO extends DAO {
         return db.select().from(PROBLEM).fetch().into(Problem.class);
     }
 
+    protected Problem get(int id) {
+        return db.select().from(PROBLEM).where(PROBLEM.ID.eq(id)).fetchAny().into(Problem.class);
+    }
+
     protected void save(Problem problem) {
         ProblemRecord newRecord = db.newRecord(PROBLEM, problem);
         newRecord.store();

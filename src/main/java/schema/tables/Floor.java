@@ -15,7 +15,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row2;
+import org.jooq.Row3;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -42,7 +42,7 @@ import schema.tables.records.FloorRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Floor extends TableImpl<FloorRecord> {
 
-    private static final long serialVersionUID = 1514887152;
+    private static final long serialVersionUID = 1561546068;
 
     /**
      * The reference instance of <code>webapp.floor</code>
@@ -66,6 +66,11 @@ public class Floor extends TableImpl<FloorRecord> {
      * The column <code>webapp.floor.name</code>.
      */
     public final TableField<FloorRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(150).nullable(false), this, "");
+
+    /**
+     * The column <code>webapp.floor.code</code>.
+     */
+    public final TableField<FloorRecord, String> CODE = createField(DSL.name("code"), org.jooq.impl.SQLDataType.VARCHAR(15).nullable(false), this, "");
 
     /**
      * Create a <code>webapp.floor</code> table reference
@@ -107,7 +112,7 @@ public class Floor extends TableImpl<FloorRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.FLOOR_PRIMARY);
+        return Arrays.<Index>asList(Indexes.FLOOR_CODE_UNIQUE, Indexes.FLOOR_PRIMARY);
     }
 
     @Override
@@ -122,7 +127,7 @@ public class Floor extends TableImpl<FloorRecord> {
 
     @Override
     public List<UniqueKey<FloorRecord>> getKeys() {
-        return Arrays.<UniqueKey<FloorRecord>>asList(Keys.KEY_FLOOR_PRIMARY);
+        return Arrays.<UniqueKey<FloorRecord>>asList(Keys.KEY_FLOOR_PRIMARY, Keys.KEY_FLOOR_CODE_UNIQUE);
     }
 
     @Override
@@ -152,11 +157,11 @@ public class Floor extends TableImpl<FloorRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row2 type methods
+    // Row3 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row2<Integer, String> fieldsRow() {
-        return (Row2) super.fieldsRow();
+    public Row3<Integer, String, String> fieldsRow() {
+        return (Row3) super.fieldsRow();
     }
 }

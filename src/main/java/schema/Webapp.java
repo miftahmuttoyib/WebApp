@@ -17,14 +17,15 @@ import org.jooq.impl.SchemaImpl;
 import schema.tables.Apartment;
 import schema.tables.ApartmentRoom;
 import schema.tables.Building;
-import schema.tables.BuildingFloor;
+import schema.tables.Complaint;
+import schema.tables.ComplaintTeam;
 import schema.tables.Facilities;
 import schema.tables.FacilitiesProblem;
 import schema.tables.Floor;
-import schema.tables.FloorApartment;
 import schema.tables.Problem;
 import schema.tables.Room;
 import schema.tables.RoomFacilities;
+import schema.tables.Technician;
 import schema.tables.User;
 
 
@@ -41,7 +42,7 @@ import schema.tables.User;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Webapp extends SchemaImpl {
 
-    private static final long serialVersionUID = -908942462;
+    private static final long serialVersionUID = -800031080;
 
     /**
      * The reference instance of <code>webapp</code>
@@ -64,9 +65,14 @@ public class Webapp extends SchemaImpl {
     public final Building BUILDING = schema.tables.Building.BUILDING;
 
     /**
-     * The table <code>webapp.building_floor</code>.
+     * The table <code>webapp.complaint</code>.
      */
-    public final BuildingFloor BUILDING_FLOOR = schema.tables.BuildingFloor.BUILDING_FLOOR;
+    public final Complaint COMPLAINT = schema.tables.Complaint.COMPLAINT;
+
+    /**
+     * The table <code>webapp.complaint_team</code>.
+     */
+    public final ComplaintTeam COMPLAINT_TEAM = schema.tables.ComplaintTeam.COMPLAINT_TEAM;
 
     /**
      * The table <code>webapp.facilities</code>.
@@ -84,11 +90,6 @@ public class Webapp extends SchemaImpl {
     public final Floor FLOOR = schema.tables.Floor.FLOOR;
 
     /**
-     * The table <code>webapp.floor_apartment</code>.
-     */
-    public final FloorApartment FLOOR_APARTMENT = schema.tables.FloorApartment.FLOOR_APARTMENT;
-
-    /**
      * The table <code>webapp.problem</code>.
      */
     public final Problem PROBLEM = schema.tables.Problem.PROBLEM;
@@ -102,6 +103,11 @@ public class Webapp extends SchemaImpl {
      * The table <code>webapp.room_facilities</code>.
      */
     public final RoomFacilities ROOM_FACILITIES = schema.tables.RoomFacilities.ROOM_FACILITIES;
+
+    /**
+     * The table <code>webapp.technician</code>.
+     */
+    public final Technician TECHNICIAN = schema.tables.Technician.TECHNICIAN;
 
     /**
      * The table <code>webapp.user</code>.
@@ -133,14 +139,15 @@ public class Webapp extends SchemaImpl {
             Apartment.APARTMENT,
             ApartmentRoom.APARTMENT_ROOM,
             Building.BUILDING,
-            BuildingFloor.BUILDING_FLOOR,
+            Complaint.COMPLAINT,
+            ComplaintTeam.COMPLAINT_TEAM,
             Facilities.FACILITIES,
             FacilitiesProblem.FACILITIES_PROBLEM,
             Floor.FLOOR,
-            FloorApartment.FLOOR_APARTMENT,
             Problem.PROBLEM,
             Room.ROOM,
             RoomFacilities.ROOM_FACILITIES,
+            Technician.TECHNICIAN,
             User.USER);
     }
 }

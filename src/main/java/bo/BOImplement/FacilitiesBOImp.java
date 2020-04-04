@@ -13,8 +13,8 @@ public class FacilitiesBOImp extends FacilitiesDAO implements FacilitiesBO {
     }
 
     @Override
-    public Facilities getFacilitiesById(String id) {
-        return null;
+    public Facilities getFacilitiesById(int id) {
+        return get(id);
     }
 
     @Override

@@ -25,6 +25,14 @@ public class FacilitiesDAO extends DAO {
         return resultList;
     }
 
+    protected Facilities get(int id) {
+        Facilities facilities = db.select().from(FACILITIES).where(FACILITIES.ID.eq(id)).fetchAny().into(Facilities.class);
+        List<Facilities.FacilitiesProblem> resultChildList = db.select().from(FACILITIES_PROBLEM).where(FACILITIES_PROBLEM.FACILITIES_ID.eq(facilities.getId())).fetch().into(Facilities.FacilitiesProblem.class);
+        List<Problem> problems = problemDAO.getAll();
+        facilities.childMap(resultChildList, problems);
+        return facilities;
+    }
+
     protected void save(Facilities facilities) {
         FacilitiesRecord newRecord = db.newRecord(FACILITIES, facilities);
         newRecord.store();

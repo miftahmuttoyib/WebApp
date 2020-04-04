@@ -6,13 +6,18 @@ import stdc.IdName;
 
 import javax.persistence.Column;
 
+import static stdc.IdName.ColumnName.ID;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Problem extends IdName {
     public static final String TABLE_NAME = "problem";
+    public static final String FOREIGN_KEY_NAME = TABLE_NAME + "_" + ID;
+
     public static final class ColumnName {
         public final static String PRIORITY = "priority";
         public final static String WORKING_TYPE = "working_type";
         public final static String EXECUTION_TIME = "execution_time";
+        public final static String MANPOWER = "manpower";
     }
 
     @Column(name = ColumnName.PRIORITY)
@@ -21,6 +26,8 @@ public class Problem extends IdName {
     private String workingType = "";
     @Column(name = ColumnName.EXECUTION_TIME)
     private int executionTime;
+    @Column(name = ColumnName.MANPOWER)
+    private int manpower;
 
     public Problem() {
 
@@ -48,6 +55,13 @@ public class Problem extends IdName {
     }
     public void setExecutionTime(int executionTime) {
         this.executionTime = executionTime;
+    }
+
+    public int getManpower() {
+        return manpower;
+    }
+    public void setManpower(int manpower) {
+        this.manpower = manpower;
     }
 
     /**

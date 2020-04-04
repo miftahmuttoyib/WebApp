@@ -3,12 +3,17 @@
  */
 package WebApp;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import helper.scheduler.ComplaintScheduler;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+    public static void main(String[] args) {
+        ScheduledExecutorService scheduler;
+        scheduler = Executors.newSingleThreadScheduledExecutor();
+        scheduler.scheduleAtFixedRate(new ComplaintScheduler(), 0, 2, TimeUnit.MINUTES);
+
     }
 }

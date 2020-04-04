@@ -1,5 +1,7 @@
 package obj;
 
+import bo.BOImplement.FacilitiesBOImp;
+import bo.FacilitiesBO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.jooq.DSLContext;
 import schema.tables.records.RoomFacilitiesRecord;
@@ -9,6 +11,7 @@ import stdc.IdName;
 import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static schema.Tables.ROOM_FACILITIES;
@@ -17,6 +20,8 @@ import static stdc.IdName.ColumnName.ID;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Room extends IdName {
     public static final String TABLE_NAME = "room";
+    public static final String FOREIGN_KEY_NAME = TABLE_NAME + "_" + ID;
+
     public static class ColumnName {
 
     }
@@ -28,10 +33,10 @@ public class Room extends IdName {
     private List<Facilities> facilitiesList = new ArrayList<>();
 
     public static class RoomFacilities {
-        @Column(name = TABLE_NAME+"_"+ID)
+        @Column(name = FOREIGN_KEY_NAME)
         private int roomId;
 
-        @Column(name = Facilities.TABLE_NAME+"_"+ID)
+        @Column(name = Facilities.FOREIGN_KEY_NAME)
         private int facilitiesId;
 
         public RoomFacilities() {
@@ -55,6 +60,9 @@ public class Room extends IdName {
 
     public List<Facilities> getFacilitiesList() {
         return facilitiesList;
+    }
+    public Facilities getFacilities(int facilitiesId) {
+        return this.facilitiesList.stream().filter(f -> f.getId() == facilitiesId).findAny().orElse(null);
     }
     public void setFacilitiesList(List<Facilities> facilitiesList) {
         this.facilitiesList = facilitiesList;

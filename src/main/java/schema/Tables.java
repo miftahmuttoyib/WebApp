@@ -9,14 +9,15 @@ import javax.annotation.Generated;
 import schema.tables.Apartment;
 import schema.tables.ApartmentRoom;
 import schema.tables.Building;
-import schema.tables.BuildingFloor;
+import schema.tables.Complaint;
+import schema.tables.ComplaintTeam;
 import schema.tables.Facilities;
 import schema.tables.FacilitiesProblem;
 import schema.tables.Floor;
-import schema.tables.FloorApartment;
 import schema.tables.Problem;
 import schema.tables.Room;
 import schema.tables.RoomFacilities;
+import schema.tables.Technician;
 import schema.tables.User;
 
 
@@ -49,9 +50,14 @@ public class Tables {
     public static final Building BUILDING = Building.BUILDING;
 
     /**
-     * The table <code>webapp.building_floor</code>.
+     * The table <code>webapp.complaint</code>.
      */
-    public static final BuildingFloor BUILDING_FLOOR = BuildingFloor.BUILDING_FLOOR;
+    public static final Complaint COMPLAINT = Complaint.COMPLAINT;
+
+    /**
+     * The table <code>webapp.complaint_team</code>.
+     */
+    public static final ComplaintTeam COMPLAINT_TEAM = ComplaintTeam.COMPLAINT_TEAM;
 
     /**
      * The table <code>webapp.facilities</code>.
@@ -69,11 +75,6 @@ public class Tables {
     public static final Floor FLOOR = Floor.FLOOR;
 
     /**
-     * The table <code>webapp.floor_apartment</code>.
-     */
-    public static final FloorApartment FLOOR_APARTMENT = FloorApartment.FLOOR_APARTMENT;
-
-    /**
      * The table <code>webapp.problem</code>.
      */
     public static final Problem PROBLEM = Problem.PROBLEM;
@@ -87,6 +88,11 @@ public class Tables {
      * The table <code>webapp.room_facilities</code>.
      */
     public static final RoomFacilities ROOM_FACILITIES = RoomFacilities.ROOM_FACILITIES;
+
+    /**
+     * The table <code>webapp.technician</code>.
+     */
+    public static final Technician TECHNICIAN = Technician.TECHNICIAN;
 
     /**
      * The table <code>webapp.user</code>.

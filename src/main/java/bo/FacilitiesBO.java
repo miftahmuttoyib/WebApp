@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface FacilitiesBO {
     List<Facilities> getAllFacilities();
-    Facilities getFacilitiesById(String id);
+    Facilities getFacilitiesById(int id);
 
     void saveFacilities(Facilities facilities);
 

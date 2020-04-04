@@ -5,9 +5,12 @@ import stdc.IdName;
 
 import javax.persistence.Column;
 
+import static stdc.IdName.ColumnName.ID;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Building extends IdName {
     public static final String TABLE_NAME = "building";
+    public static final String FOREIGN_KEY_NAME = TABLE_NAME + "_" + ID;
 
     public static final class ColumnName {
         public final static String CODE = "code";

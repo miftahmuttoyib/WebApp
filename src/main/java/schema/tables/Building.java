@@ -15,7 +15,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row2;
+import org.jooq.Row3;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -42,7 +42,7 @@ import schema.tables.records.BuildingRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Building extends TableImpl<BuildingRecord> {
 
-    private static final long serialVersionUID = 194589004;
+    private static final long serialVersionUID = 177367450;
 
     /**
      * The reference instance of <code>webapp.building</code>
@@ -66,6 +66,11 @@ public class Building extends TableImpl<BuildingRecord> {
      * The column <code>webapp.building.name</code>.
      */
     public final TableField<BuildingRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(150).nullable(false), this, "");
+
+    /**
+     * The column <code>webapp.building.code</code>.
+     */
+    public final TableField<BuildingRecord, String> CODE = createField(DSL.name("code"), org.jooq.impl.SQLDataType.VARCHAR(15).nullable(false), this, "");
 
     /**
      * Create a <code>webapp.building</code> table reference
@@ -107,7 +112,7 @@ public class Building extends TableImpl<BuildingRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.BUILDING_PRIMARY);
+        return Arrays.<Index>asList(Indexes.BUILDING_CODE_UNIQUE, Indexes.BUILDING_PRIMARY);
     }
 
     @Override
@@ -122,7 +127,7 @@ public class Building extends TableImpl<BuildingRecord> {
 
     @Override
     public List<UniqueKey<BuildingRecord>> getKeys() {
-        return Arrays.<UniqueKey<BuildingRecord>>asList(Keys.KEY_BUILDING_PRIMARY);
+        return Arrays.<UniqueKey<BuildingRecord>>asList(Keys.KEY_BUILDING_PRIMARY, Keys.KEY_BUILDING_CODE_UNIQUE);
     }
 
     @Override
@@ -152,11 +157,11 @@ public class Building extends TableImpl<BuildingRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row2 type methods
+    // Row3 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row2<Integer, String> fieldsRow() {
-        return (Row2) super.fieldsRow();
+    public Row3<Integer, String, String> fieldsRow() {
+        return (Row3) super.fieldsRow();
     }
 }

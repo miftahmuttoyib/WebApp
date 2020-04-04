@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ApartmentBO {
     List<Apartment> getAllApartment();
-    Apartment getApartmentById(String id);
+    Apartment getApartmentById(int id);
 
     void saveApartment(Apartment apartment);
 

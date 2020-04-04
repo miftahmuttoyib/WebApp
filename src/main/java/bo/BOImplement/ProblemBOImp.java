@@ -6,8 +6,6 @@ import obj.Problem;
 
 import java.util.List;
 
-import static helper.Common.mapWorkingType;
-
 public class ProblemBOImp extends ProblemDAO implements ProblemBO {
     @Override
     public List<Problem> getAllProblem() {
@@ -18,7 +16,8 @@ public class ProblemBOImp extends ProblemDAO implements ProblemBO {
 
     @Override
     public Problem getProblemById(String id) {
-        return null;
+        int idInt = Integer.parseInt(id);
+        return get(idInt);
     }
 
     @Override

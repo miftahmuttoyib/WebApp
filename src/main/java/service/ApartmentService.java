@@ -23,7 +23,7 @@ public class ApartmentService {
     @Path("get")
     @Produces(MediaType.APPLICATION_JSON)
     public Apartment getApartment(@QueryParam("id") String id) {
-        return apartmentBO.getApartmentById(id);
+        return apartmentBO.getApartmentById(Integer.parseInt(id));
     }
 
     @POST

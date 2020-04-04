@@ -17,6 +17,8 @@ import static stdc.IdName.ColumnName.ID;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Facilities extends IdName {
     public static final String TABLE_NAME = "facilities";
+    public static final String FOREIGN_KEY_NAME = TABLE_NAME + "_" + ID;
+
     public static final class ColumnName {
         public final static String FACILITIES_TYPE = "facilities_type";
 
@@ -31,10 +33,10 @@ public class Facilities extends IdName {
     private List<Problem> problemList = new ArrayList<>();
 
     public static class FacilitiesProblem {
-        @Column(name = TABLE_NAME+"_"+ID)
+        @Column(name = FOREIGN_KEY_NAME)
         private int facilitiesId;
 
-        @Column(name = Problem.TABLE_NAME+"_"+ID)
+        @Column(name = Problem.FOREIGN_KEY_NAME)
         private int problemId;
 
         public FacilitiesProblem() {
@@ -64,6 +66,9 @@ public class Facilities extends IdName {
 
     public List<Problem> getProblemList() {
         return problemList;
+    }
+    public Problem getProblem(int problemId) {
+        return this.problemList.stream().filter(f -> f.getId() == problemId).findAny().orElse(null);
     }
     public void setProblemList(List<Problem> problemList) {
         this.problemList = problemList;

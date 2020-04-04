@@ -13,14 +13,15 @@ import org.jooq.impl.Internal;
 import schema.tables.Apartment;
 import schema.tables.ApartmentRoom;
 import schema.tables.Building;
-import schema.tables.BuildingFloor;
+import schema.tables.Complaint;
+import schema.tables.ComplaintTeam;
 import schema.tables.Facilities;
 import schema.tables.FacilitiesProblem;
 import schema.tables.Floor;
-import schema.tables.FloorApartment;
 import schema.tables.Problem;
 import schema.tables.Room;
 import schema.tables.RoomFacilities;
+import schema.tables.Technician;
 import schema.tables.User;
 
 
@@ -44,20 +45,28 @@ public class Indexes {
     public static final Index APARTMENT_PRIMARY = Indexes0.APARTMENT_PRIMARY;
     public static final Index APARTMENT_ROOM_PRIMARY = Indexes0.APARTMENT_ROOM_PRIMARY;
     public static final Index APARTMENT_ROOM_ROOM_ID = Indexes0.APARTMENT_ROOM_ROOM_ID;
+    public static final Index BUILDING_CODE_UNIQUE = Indexes0.BUILDING_CODE_UNIQUE;
     public static final Index BUILDING_PRIMARY = Indexes0.BUILDING_PRIMARY;
-    public static final Index BUILDING_FLOOR_FLOOR_ID = Indexes0.BUILDING_FLOOR_FLOOR_ID;
-    public static final Index BUILDING_FLOOR_PRIMARY = Indexes0.BUILDING_FLOOR_PRIMARY;
+    public static final Index COMPLAINT_APARTMENT_ID = Indexes0.COMPLAINT_APARTMENT_ID;
+    public static final Index COMPLAINT_FACILITIES_ID = Indexes0.COMPLAINT_FACILITIES_ID;
+    public static final Index COMPLAINT_PRIMARY = Indexes0.COMPLAINT_PRIMARY;
+    public static final Index COMPLAINT_PROBLEM_ID = Indexes0.COMPLAINT_PROBLEM_ID;
+    public static final Index COMPLAINT_ROOM_ID = Indexes0.COMPLAINT_ROOM_ID;
+    public static final Index COMPLAINT_USER_ID = Indexes0.COMPLAINT_USER_ID;
+    public static final Index COMPLAINT_TEAM_PRIMARY = Indexes0.COMPLAINT_TEAM_PRIMARY;
+    public static final Index COMPLAINT_TEAM_TECHNICIAN_ID = Indexes0.COMPLAINT_TEAM_TECHNICIAN_ID;
     public static final Index FACILITIES_PRIMARY = Indexes0.FACILITIES_PRIMARY;
     public static final Index FACILITIES_PROBLEM_PRIMARY = Indexes0.FACILITIES_PROBLEM_PRIMARY;
     public static final Index FACILITIES_PROBLEM_PROBLEM_ID = Indexes0.FACILITIES_PROBLEM_PROBLEM_ID;
+    public static final Index FLOOR_CODE_UNIQUE = Indexes0.FLOOR_CODE_UNIQUE;
     public static final Index FLOOR_PRIMARY = Indexes0.FLOOR_PRIMARY;
-    public static final Index FLOOR_APARTMENT_APARTMENT_ID = Indexes0.FLOOR_APARTMENT_APARTMENT_ID;
-    public static final Index FLOOR_APARTMENT_PRIMARY = Indexes0.FLOOR_APARTMENT_PRIMARY;
     public static final Index PROBLEM_PRIMARY = Indexes0.PROBLEM_PRIMARY;
     public static final Index ROOM_PRIMARY = Indexes0.ROOM_PRIMARY;
     public static final Index ROOM_FACILITIES_FACILITIES_ID = Indexes0.ROOM_FACILITIES_FACILITIES_ID;
     public static final Index ROOM_FACILITIES_PRIMARY = Indexes0.ROOM_FACILITIES_PRIMARY;
+    public static final Index TECHNICIAN_PRIMARY = Indexes0.TECHNICIAN_PRIMARY;
     public static final Index USER_PRIMARY = Indexes0.USER_PRIMARY;
+    public static final Index USER_USER_IBFK_1_IDX = Indexes0.USER_USER_IBFK_1_IDX;
     public static final Index USER_USERNAME = Indexes0.USER_USERNAME;
 
     // -------------------------------------------------------------------------
@@ -68,20 +77,28 @@ public class Indexes {
         public static Index APARTMENT_PRIMARY = Internal.createIndex("PRIMARY", Apartment.APARTMENT, new OrderField[] { Apartment.APARTMENT.ID }, true);
         public static Index APARTMENT_ROOM_PRIMARY = Internal.createIndex("PRIMARY", ApartmentRoom.APARTMENT_ROOM, new OrderField[] { ApartmentRoom.APARTMENT_ROOM.APARTMENT_ID, ApartmentRoom.APARTMENT_ROOM.ROOM_ID }, true);
         public static Index APARTMENT_ROOM_ROOM_ID = Internal.createIndex("room_id", ApartmentRoom.APARTMENT_ROOM, new OrderField[] { ApartmentRoom.APARTMENT_ROOM.ROOM_ID }, false);
+        public static Index BUILDING_CODE_UNIQUE = Internal.createIndex("code_UNIQUE", Building.BUILDING, new OrderField[] { Building.BUILDING.CODE }, true);
         public static Index BUILDING_PRIMARY = Internal.createIndex("PRIMARY", Building.BUILDING, new OrderField[] { Building.BUILDING.ID }, true);
-        public static Index BUILDING_FLOOR_FLOOR_ID = Internal.createIndex("floor_id", BuildingFloor.BUILDING_FLOOR, new OrderField[] { BuildingFloor.BUILDING_FLOOR.FLOOR_ID }, false);
-        public static Index BUILDING_FLOOR_PRIMARY = Internal.createIndex("PRIMARY", BuildingFloor.BUILDING_FLOOR, new OrderField[] { BuildingFloor.BUILDING_FLOOR.BUILDING_ID, BuildingFloor.BUILDING_FLOOR.FLOOR_ID }, true);
+        public static Index COMPLAINT_APARTMENT_ID = Internal.createIndex("apartment_id", Complaint.COMPLAINT, new OrderField[] { Complaint.COMPLAINT.APARTMENT_ID }, false);
+        public static Index COMPLAINT_FACILITIES_ID = Internal.createIndex("facilities_id", Complaint.COMPLAINT, new OrderField[] { Complaint.COMPLAINT.FACILITIES_ID }, false);
+        public static Index COMPLAINT_PRIMARY = Internal.createIndex("PRIMARY", Complaint.COMPLAINT, new OrderField[] { Complaint.COMPLAINT.ID }, true);
+        public static Index COMPLAINT_PROBLEM_ID = Internal.createIndex("problem_id", Complaint.COMPLAINT, new OrderField[] { Complaint.COMPLAINT.PROBLEM_ID }, false);
+        public static Index COMPLAINT_ROOM_ID = Internal.createIndex("room_id", Complaint.COMPLAINT, new OrderField[] { Complaint.COMPLAINT.ROOM_ID }, false);
+        public static Index COMPLAINT_USER_ID = Internal.createIndex("user_id", Complaint.COMPLAINT, new OrderField[] { Complaint.COMPLAINT.USER_ID }, false);
+        public static Index COMPLAINT_TEAM_PRIMARY = Internal.createIndex("PRIMARY", ComplaintTeam.COMPLAINT_TEAM, new OrderField[] { ComplaintTeam.COMPLAINT_TEAM.COMPLAINT_ID, ComplaintTeam.COMPLAINT_TEAM.TECHNICIAN_ID }, true);
+        public static Index COMPLAINT_TEAM_TECHNICIAN_ID = Internal.createIndex("technician_id", ComplaintTeam.COMPLAINT_TEAM, new OrderField[] { ComplaintTeam.COMPLAINT_TEAM.TECHNICIAN_ID }, false);
         public static Index FACILITIES_PRIMARY = Internal.createIndex("PRIMARY", Facilities.FACILITIES, new OrderField[] { Facilities.FACILITIES.ID }, true);
         public static Index FACILITIES_PROBLEM_PRIMARY = Internal.createIndex("PRIMARY", FacilitiesProblem.FACILITIES_PROBLEM, new OrderField[] { FacilitiesProblem.FACILITIES_PROBLEM.FACILITIES_ID, FacilitiesProblem.FACILITIES_PROBLEM.PROBLEM_ID }, true);
         public static Index FACILITIES_PROBLEM_PROBLEM_ID = Internal.createIndex("problem_id", FacilitiesProblem.FACILITIES_PROBLEM, new OrderField[] { FacilitiesProblem.FACILITIES_PROBLEM.PROBLEM_ID }, false);
+        public static Index FLOOR_CODE_UNIQUE = Internal.createIndex("code_UNIQUE", Floor.FLOOR, new OrderField[] { Floor.FLOOR.CODE }, true);
         public static Index FLOOR_PRIMARY = Internal.createIndex("PRIMARY", Floor.FLOOR, new OrderField[] { Floor.FLOOR.ID }, true);
-        public static Index FLOOR_APARTMENT_APARTMENT_ID = Internal.createIndex("apartment_id", FloorApartment.FLOOR_APARTMENT, new OrderField[] { FloorApartment.FLOOR_APARTMENT.APARTMENT_ID }, false);
-        public static Index FLOOR_APARTMENT_PRIMARY = Internal.createIndex("PRIMARY", FloorApartment.FLOOR_APARTMENT, new OrderField[] { FloorApartment.FLOOR_APARTMENT.FLOOR_ID, FloorApartment.FLOOR_APARTMENT.APARTMENT_ID }, true);
         public static Index PROBLEM_PRIMARY = Internal.createIndex("PRIMARY", Problem.PROBLEM, new OrderField[] { Problem.PROBLEM.ID }, true);
         public static Index ROOM_PRIMARY = Internal.createIndex("PRIMARY", Room.ROOM, new OrderField[] { Room.ROOM.ID }, true);
         public static Index ROOM_FACILITIES_FACILITIES_ID = Internal.createIndex("facilities_id", RoomFacilities.ROOM_FACILITIES, new OrderField[] { RoomFacilities.ROOM_FACILITIES.FACILITIES_ID }, false);
         public static Index ROOM_FACILITIES_PRIMARY = Internal.createIndex("PRIMARY", RoomFacilities.ROOM_FACILITIES, new OrderField[] { RoomFacilities.ROOM_FACILITIES.ROOM_ID, RoomFacilities.ROOM_FACILITIES.FACILITIES_ID }, true);
+        public static Index TECHNICIAN_PRIMARY = Internal.createIndex("PRIMARY", Technician.TECHNICIAN, new OrderField[] { Technician.TECHNICIAN.ID }, true);
         public static Index USER_PRIMARY = Internal.createIndex("PRIMARY", User.USER, new OrderField[] { User.USER.ID }, true);
+        public static Index USER_USER_IBFK_1_IDX = Internal.createIndex("user_ibfk_1_idx", User.USER, new OrderField[] { User.USER.APARTMENT_ID }, false);
         public static Index USER_USERNAME = Internal.createIndex("username", User.USER, new OrderField[] { User.USER.USERNAME }, true);
     }
 }
