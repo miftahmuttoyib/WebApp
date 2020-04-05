@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class TechnicianBOImp extends TechnicianDAO implements TechnicianBO {
     @Override
     public List<Technician> getAllTechnician() {
-        return null;
+        return getAll();
     }
 
     @Override

@@ -27,6 +27,13 @@ public class ComplaintService extends HttpServlet {
         return complaintBO.getComplaintById(id);
     }
 
+    @GET
+    @Path("get/spk/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Complaint getSpk(@QueryParam("id") String id) {
+        return complaintBO.getComplaintById(id);
+    }
+
     @POST
     @Path("save")
     @Produces(MediaType.APPLICATION_JSON)

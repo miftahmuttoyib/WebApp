@@ -1,15 +1,15 @@
 package dao;
 
 
-import org.jooq.DSLContext;
-import org.jooq.Record;
-import org.jooq.Result;
-import org.jooq.SQLDialect;
+import com.sun.jersey.api.client.GenericType;
+import obj.Complaint;
+import org.jooq.*;
 import org.jooq.impl.DSL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 class DAO {
     private final static String userName = "root";
@@ -41,9 +41,9 @@ class DAO {
         db = DSL.using(conn, SQLDialect.MYSQL);
     }
 
-    protected Result<Record> getAll(String tableName) {
-        return db.select().from(tableName).fetch();
-    }
+//    protected <E> List<E> getAll(TableLike<?> tableName, Class<? extends E> type) {
+//        return db.select().from(tableName).fetch().into(type);
+//    }
 
     protected Record getById(String tableName, String id) {
         return db.fetchOne(tableName, "");

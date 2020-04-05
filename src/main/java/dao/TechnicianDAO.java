@@ -12,4 +12,8 @@ public class TechnicianDAO extends DAO {
         Date today = new Date(new java.util.Date().getTime());
         return db.select().from(TECHNICIAN).where(TECHNICIAN.TYPE.eq(workingType).and(TECHNICIAN.LAST_WORKING_DAY.notEqual(today))).fetch().into(Technician.class);
     }
+
+    protected List<Technician> getAll() {
+        return db.select().from(TECHNICIAN).fetch().into(Technician.class);
+    }
 }

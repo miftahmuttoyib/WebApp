@@ -1,23 +1,17 @@
 package bo.BOImplement;
 
 import bo.ComplaintBO;
-import bo.ProblemBO;
-import bo.TechnicianBO;
 import dao.ComplaintDAO;
 import obj.Complaint;
-import obj.Problem;
-import obj.Technician;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ComplaintBOImp extends ComplaintDAO implements ComplaintBO {
-    private ProblemBO problemBO = new ProblemBOImp();
-    private TechnicianBO technicianBO = new TechnicianBOImp();
     @Override
     public List<Complaint> getAllComplaint() {
-        return null;
+        return getAll();
     }
 
     @Override
@@ -27,7 +21,7 @@ public class ComplaintBOImp extends ComplaintDAO implements ComplaintBO {
 
     @Override
     public Complaint getComplaintById(String id) {
-        return null;
+        return get(Integer.parseInt(id));
     }
 
     @Override

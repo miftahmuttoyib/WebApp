@@ -12,6 +12,7 @@ import javax.persistence.Column;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static schema.Tables.COMPLAINT_TEAM;
 import static stdc.IdName.ColumnName.ID;
@@ -43,6 +44,9 @@ public class Complaint extends IdName {
 
     private User user = new User();
     private Apartment apartment = new Apartment();
+    private Room room = new Room();
+    private Facilities facilities = new Facilities();
+    private Problem problem = new Problem();
     private List<Technician> technicianList= new ArrayList<>();
 
     public static class ComplaintTeam {
@@ -50,6 +54,20 @@ public class Complaint extends IdName {
         private int compaintId;
         @Column(name = Technician.FOREIGN_KEY_NAME)
         private int technicianId;
+
+        public int getCompaintId() {
+            return compaintId;
+        }
+        public void setCompaintId(int compaintId) {
+            this.compaintId = compaintId;
+        }
+
+        public int getTechnicianId() {
+            return technicianId;
+        }
+        public void setTechnicianId(int technicianId) {
+            this.technicianId = technicianId;
+        }
     }
 
 
@@ -118,6 +136,27 @@ public class Complaint extends IdName {
         this.apartment = apartment;
     }
 
+    public Problem getProblem() {
+        return problem;
+    }
+    public void setProblem(Problem problem) {
+        this.problem = problem;
+    }
+
+    public Facilities getFacilities() {
+        return facilities;
+    }
+    public void setFacilities(Facilities facilities) {
+        this.facilities = facilities;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     public List<Technician> getTechnicianList() {
         return technicianList;
     }
@@ -134,5 +173,13 @@ public class Complaint extends IdName {
             resultList.add(childRecord);
         }
         return resultList;
+    }
+
+    public void childMap(List<ComplaintTeam> resultChildList, List<Technician> technicianList) {
+        List<ComplaintTeam> childItems = resultChildList.stream().filter(item -> item.getCompaintId() == this.getId()).collect(Collectors.toList());
+        for (ComplaintTeam item : childItems) {
+            List<Technician> technicians = technicianList.stream().filter(p -> p.getId() == item.getTechnicianId()).collect(Collectors.toList());
+            this.setTechnicianList(technicians);
+        }
     }
 }
