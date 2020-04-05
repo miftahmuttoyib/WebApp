@@ -57,6 +57,7 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
+    public static final Identity<ApartmentRecord, Integer> IDENTITY_APARTMENT = Identities0.IDENTITY_APARTMENT;
     public static final Identity<BuildingRecord, Integer> IDENTITY_BUILDING = Identities0.IDENTITY_BUILDING;
     public static final Identity<ComplaintRecord, Integer> IDENTITY_COMPLAINT = Identities0.IDENTITY_COMPLAINT;
     public static final Identity<FacilitiesRecord, Integer> IDENTITY_FACILITIES = Identities0.IDENTITY_FACILITIES;
@@ -91,6 +92,8 @@ public class Keys {
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final ForeignKey<ApartmentRecord, BuildingRecord> APARTMENT_IBFK_1 = ForeignKeys0.APARTMENT_IBFK_1;
+    public static final ForeignKey<ApartmentRecord, FloorRecord> APARTMENT_IBFK_2 = ForeignKeys0.APARTMENT_IBFK_2;
     public static final ForeignKey<ApartmentRoomRecord, ApartmentRecord> APARTMENT_ROOM_IBFK_1 = ForeignKeys0.APARTMENT_ROOM_IBFK_1;
     public static final ForeignKey<ApartmentRoomRecord, RoomRecord> APARTMENT_ROOM_IBFK_2 = ForeignKeys0.APARTMENT_ROOM_IBFK_2;
     public static final ForeignKey<ComplaintRecord, UserRecord> COMPLAINT_IBFK_1 = ForeignKeys0.COMPLAINT_IBFK_1;
@@ -111,6 +114,7 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class Identities0 {
+        public static Identity<ApartmentRecord, Integer> IDENTITY_APARTMENT = Internal.createIdentity(Apartment.APARTMENT, Apartment.APARTMENT.ID);
         public static Identity<BuildingRecord, Integer> IDENTITY_BUILDING = Internal.createIdentity(Building.BUILDING, Building.BUILDING.ID);
         public static Identity<ComplaintRecord, Integer> IDENTITY_COMPLAINT = Internal.createIdentity(Complaint.COMPLAINT, Complaint.COMPLAINT.ID);
         public static Identity<FacilitiesRecord, Integer> IDENTITY_FACILITIES = Internal.createIdentity(Facilities.FACILITIES, Facilities.FACILITIES.ID);
@@ -141,6 +145,8 @@ public class Keys {
     }
 
     private static class ForeignKeys0 {
+        public static final ForeignKey<ApartmentRecord, BuildingRecord> APARTMENT_IBFK_1 = Internal.createForeignKey(schema.Keys.KEY_BUILDING_PRIMARY, Apartment.APARTMENT, "apartment_ibfk_1", Apartment.APARTMENT.BUILDING_ID);
+        public static final ForeignKey<ApartmentRecord, FloorRecord> APARTMENT_IBFK_2 = Internal.createForeignKey(schema.Keys.KEY_FLOOR_PRIMARY, Apartment.APARTMENT, "apartment_ibfk_2", Apartment.APARTMENT.FLOOR_ID);
         public static final ForeignKey<ApartmentRoomRecord, ApartmentRecord> APARTMENT_ROOM_IBFK_1 = Internal.createForeignKey(schema.Keys.KEY_APARTMENT_PRIMARY, ApartmentRoom.APARTMENT_ROOM, "apartment_room_ibfk_1", ApartmentRoom.APARTMENT_ROOM.APARTMENT_ID);
         public static final ForeignKey<ApartmentRoomRecord, RoomRecord> APARTMENT_ROOM_IBFK_2 = Internal.createForeignKey(schema.Keys.KEY_ROOM_PRIMARY, ApartmentRoom.APARTMENT_ROOM, "apartment_room_ibfk_2", ApartmentRoom.APARTMENT_ROOM.ROOM_ID);
         public static final ForeignKey<ComplaintRecord, UserRecord> COMPLAINT_IBFK_1 = Internal.createForeignKey(schema.Keys.KEY_USER_PRIMARY, Complaint.COMPLAINT, "complaint_ibfk_1", Complaint.COMPLAINT.USER_ID);

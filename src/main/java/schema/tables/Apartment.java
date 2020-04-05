@@ -11,10 +11,11 @@ import javax.annotation.Generated;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
+import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row2;
+import org.jooq.Row5;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -41,7 +42,7 @@ import schema.tables.records.ApartmentRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Apartment extends TableImpl<ApartmentRecord> {
 
-    private static final long serialVersionUID = 1745210079;
+    private static final long serialVersionUID = -974981179;
 
     /**
      * The reference instance of <code>webapp.apartment</code>
@@ -59,12 +60,27 @@ public class Apartment extends TableImpl<ApartmentRecord> {
     /**
      * The column <code>webapp.apartment.id</code>.
      */
-    public final TableField<ApartmentRecord, Integer> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<ApartmentRecord, Integer> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>webapp.apartment.name</code>.
      */
     public final TableField<ApartmentRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(150).nullable(false), this, "");
+
+    /**
+     * The column <code>webapp.apartment.code</code>.
+     */
+    public final TableField<ApartmentRecord, Integer> CODE = createField(DSL.name("code"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>webapp.apartment.building_id</code>.
+     */
+    public final TableField<ApartmentRecord, Integer> BUILDING_ID = createField(DSL.name("building_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>webapp.apartment.floor_id</code>.
+     */
+    public final TableField<ApartmentRecord, Integer> FLOOR_ID = createField(DSL.name("floor_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * Create a <code>webapp.apartment</code> table reference
@@ -106,7 +122,12 @@ public class Apartment extends TableImpl<ApartmentRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.APARTMENT_PRIMARY);
+        return Arrays.<Index>asList(Indexes.APARTMENT_APARTMENT_IBFK_1_IDX, Indexes.APARTMENT_APARTMENT_IBFK_2_IDX, Indexes.APARTMENT_PRIMARY);
+    }
+
+    @Override
+    public Identity<ApartmentRecord, Integer> getIdentity() {
+        return Keys.IDENTITY_APARTMENT;
     }
 
     @Override
@@ -117,6 +138,19 @@ public class Apartment extends TableImpl<ApartmentRecord> {
     @Override
     public List<UniqueKey<ApartmentRecord>> getKeys() {
         return Arrays.<UniqueKey<ApartmentRecord>>asList(Keys.KEY_APARTMENT_PRIMARY);
+    }
+
+    @Override
+    public List<ForeignKey<ApartmentRecord, ?>> getReferences() {
+        return Arrays.<ForeignKey<ApartmentRecord, ?>>asList(Keys.APARTMENT_IBFK_1, Keys.APARTMENT_IBFK_2);
+    }
+
+    public Building building() {
+        return new Building(this, Keys.APARTMENT_IBFK_1);
+    }
+
+    public Floor floor() {
+        return new Floor(this, Keys.APARTMENT_IBFK_2);
     }
 
     @Override
@@ -146,11 +180,11 @@ public class Apartment extends TableImpl<ApartmentRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row2 type methods
+    // Row5 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row2<Integer, String> fieldsRow() {
-        return (Row2) super.fieldsRow();
+    public Row5<Integer, String, Integer, Integer, Integer> fieldsRow() {
+        return (Row5) super.fieldsRow();
     }
 }

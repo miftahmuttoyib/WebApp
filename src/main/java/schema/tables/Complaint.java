@@ -43,7 +43,7 @@ import schema.tables.records.ComplaintRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Complaint extends TableImpl<ComplaintRecord> {
 
-    private static final long serialVersionUID = -1226969897;
+    private static final long serialVersionUID = 343568700;
 
     /**
      * The reference instance of <code>webapp.complaint</code>
@@ -138,7 +138,7 @@ public class Complaint extends TableImpl<ComplaintRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.COMPLAINT_APARTMENT_ID, Indexes.COMPLAINT_FACILITIES_ID, Indexes.COMPLAINT_PRIMARY, Indexes.COMPLAINT_PROBLEM_ID, Indexes.COMPLAINT_ROOM_ID, Indexes.COMPLAINT_USER_ID);
+        return Arrays.<Index>asList(Indexes.COMPLAINT_COMPLAINT_IBFK_2_IDX, Indexes.COMPLAINT_FACILITIES_ID, Indexes.COMPLAINT_PRIMARY, Indexes.COMPLAINT_PROBLEM_ID, Indexes.COMPLAINT_ROOM_ID, Indexes.COMPLAINT_USER_ID);
     }
 
     @Override

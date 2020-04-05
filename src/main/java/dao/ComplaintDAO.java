@@ -22,7 +22,10 @@ public class ComplaintDAO extends DAO {
 
     protected List<Complaint> getByStatus(int statusNo) {
         List<Complaint> complaintList = db.select().from(COMPLAINT).where(COMPLAINT.STATUS_NO.eq(statusNo)).fetch().into(Complaint.class);
-        return null;
+        for(Complaint complaint : complaintList) {
+            mapWithOtherData(complaint);
+        }
+        return complaintList;
     }
 
     protected List<Complaint> getAll() {
@@ -37,7 +40,10 @@ public class ComplaintDAO extends DAO {
 
     protected Complaint get(int id) {
         Complaint complaint = db.select().from(COMPLAINT).where(COMPLAINT.ID.eq(id)).fetchAny().into(Complaint.class);
+        return mapWithOtherData(complaint);
+    }
 
+    private Complaint mapWithOtherData(Complaint complaint) {
         User user = db.select().from(USER).where(USER.ID.eq(complaint.getUserId())).fetchAny().into(User.class);
         complaint.setUser(user);
 
@@ -51,7 +57,7 @@ public class ComplaintDAO extends DAO {
         if (complaint.getStatusNo() < 2) {
             return complaint;
         }
-        List<Complaint.ComplaintTeam> resultChildList = db.select().from(COMPLAINT_TEAM).where(COMPLAINT_TEAM.COMPLAINT_ID.eq(id)).fetch().into(Complaint.ComplaintTeam.class);
+        List<Complaint.ComplaintTeam> resultChildList = db.select().from(COMPLAINT_TEAM).where(COMPLAINT_TEAM.COMPLAINT_ID.eq(complaint.getId())).fetch().into(Complaint.ComplaintTeam.class);
         List<Technician> technicianList = technicianBO.getAllTechnician();
         complaint.childMap(resultChildList, technicianList);
         return complaint;
