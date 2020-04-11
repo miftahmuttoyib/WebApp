@@ -128,8 +128,8 @@ public class Complaint extends IdName {
     }
 
     public Apartment getApartment() {
-        ApartmentBO apartmentBO = new ApartmentBOImp();
-        this.apartment = apartmentBO.getApartmentById(this.apartmentId);
+//        ApartmentBO apartmentBO = new ApartmentBOImp();
+//        this.apartment = apartmentBO.getApartmentById(this.apartmentId);
         return this.apartment;
     }
     public void setApartment(Apartment apartment) {

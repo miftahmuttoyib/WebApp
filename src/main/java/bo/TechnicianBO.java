@@ -11,4 +11,8 @@ public interface TechnicianBO {
     void saveTechnician(Technician problem);
 
     void deleteTechnician(String id);
+
+    void updateStatus(List<Technician> technicianList);
+
+    void freeTechnician(List<Technician> technicianList);
 }

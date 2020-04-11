@@ -71,4 +71,12 @@ public class ComplaintDAO extends DAO {
         Batch batch = db.batchInsert(childRecords);
         batch.execute();
     }
+
+    protected void update(Complaint complaint) {
+        ComplaintRecord newRecord = db.newRecord(COMPLAINT, complaint);
+        newRecord.from(complaint);
+        List<ComplaintTeamRecord> childRecords = complaint.createChildRecord(db);
+        Batch batch = db.batchStore(childRecords);
+        batch.execute();
+    }
 }

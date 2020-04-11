@@ -7,11 +7,14 @@ import java.util.List;
 public interface ComplaintBO {
     List<Complaint> getAllComplaint();
 
-    List<Complaint> selectComplaintByStatus(int stausNo);
+    List<Complaint> selectComplaintByStatus(int statusNo);
 
     Complaint getComplaintById(String id);
 
     void saveComplaint(Complaint complaint);
+    void updateComplaint(Complaint complaint, int statusNo);
 
     void deleteComplaint(String id);
+
+    Complaint finishComplaint(String id);
 }

@@ -14,25 +14,29 @@ import java.util.stream.Collectors;
 
 public class ComplaintScheduler implements Runnable {
     private TechnicianBO technicianBO = new TechnicianBOImp();
+    private ComplaintBO complaintBO = new ComplaintBOImp();
 
     @Override
     public void run() {
-        ComplaintBO complaintBO = new ComplaintBOImp();
         List<Complaint> complaintList = complaintBO.selectComplaintByStatus(1);
 
         if (complaintList.size() == 0) return;
         if (complaintList.size() == 1) {
             Complaint complaint = complaintList.get(0);
-            List<Technician> team = getTeam(complaint.getProblemId());
-            complaint.setTechnicianList(team);
-            complaintBO.saveComplaint(complaint);
+            serveComplaint(complaint);
         } else {
             Complaint highestPriorityComplain = sortComplain(complaintList);
-            complaintBO.saveComplaint(highestPriorityComplain);
+            serveComplaint(highestPriorityComplain);
         }
     }
 
-    private List<Technician> getTeam(int problemId) {
+    private void serveComplaint(Complaint complaint) {
+        List<Technician> team = orderTeam(complaint.getProblemId());
+        complaint.setTechnicianList(team);
+        complaintBO.updateComplaint(complaint, 2);
+    }
+
+    private List<Technician> orderTeam(int problemId) {
         ProblemBO problemBO = new ProblemBOImp();
         Problem problem = problemBO.getProblemById(String.valueOf(problemId));
         int manpower = problem.getManpower();
@@ -40,7 +44,9 @@ public class ComplaintScheduler implements Runnable {
             problem.setManpower(2);
             manpower = 2;
         }
-        return technicianBO.getTeam(manpower, problem.getWorkingType());
+        List<Technician> technicianList = technicianBO.getTeam(manpower, problem.getWorkingType());
+        technicianBO.updateStatus(technicianList);
+        return technicianList;
     }
 
     private Complaint sortComplain(List<Complaint> complaintList) {

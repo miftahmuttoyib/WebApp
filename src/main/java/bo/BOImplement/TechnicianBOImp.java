@@ -43,7 +43,7 @@ public class TechnicianBOImp extends TechnicianDAO implements TechnicianBO {
         // minus 2 dikarenakan index dari 0.
         // Misal 5 manpower maka 4 teknisi 1 lead,
         // techList disubstring dari 0 sampai index ke 3 (0, 1, 2, 3) maka akan dapat 4 teknisi
-        List<Technician> freshTech = techList.subList(0, manpower - 2);
+        List<Technician> freshTech = techList.subList(0, manpower - 1);
         team.addAll(freshTech);
         return team;
     }
@@ -56,5 +56,18 @@ public class TechnicianBOImp extends TechnicianDAO implements TechnicianBO {
     @Override
     public void deleteTechnician(String id) {
 
+    }
+
+    @Override
+    public void updateStatus(List<Technician> technicianList) {
+        for (Technician technician : technicianList) {
+            technician.setAvailability(!technician.isAvailability());
+        }
+        update(technicianList);
+    }
+
+    @Override
+    public void freeTechnician(List<Technician> technicianList) {
+        updateStatus(technicianList);
     }
 }
