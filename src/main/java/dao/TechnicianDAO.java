@@ -25,7 +25,7 @@ public class TechnicianDAO extends DAO {
         for (Technician technician : technicianList) {
             newRecords.add(db.newRecord(TECHNICIAN, technician));
         }
-        Batch batch = db.batchStore(newRecords);
+        Batch batch = db.batchUpdate(newRecords);
         batch.execute();
     }
 }

@@ -74,7 +74,7 @@ public class ComplaintDAO extends DAO {
 
     protected void update(Complaint complaint) {
         ComplaintRecord newRecord = db.newRecord(COMPLAINT, complaint);
-        newRecord.from(complaint);
+        newRecord.update();
         List<ComplaintTeamRecord> childRecords = complaint.createChildRecord(db);
         Batch batch = db.batchStore(childRecords);
         batch.execute();
