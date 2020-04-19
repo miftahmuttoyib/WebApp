@@ -27,6 +27,7 @@ public class ApartmentBOImp extends ApartmentDAO implements ApartmentBO {
     private void generateApartmentCode(Apartment apartment) {
         String buildingCode  = apartment.getBuilding().getCode();
         String floorCode = apartment.getFloor().getName();
+        apartment.setCode(buildingCode + floorCode + apartment.getNo());
     }
 
     @Override

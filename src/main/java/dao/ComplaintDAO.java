@@ -16,7 +16,6 @@ import static schema.Tables.COMPLAINT_TEAM;
 import static schema.tables.User.USER;
 
 public class ComplaintDAO extends DAO {
-
     private TechnicianBO technicianBO = new TechnicianBOImp();
     private ApartmentBO apartmentBO = new ApartmentBOImp();
 
