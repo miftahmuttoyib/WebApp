@@ -1,7 +1,5 @@
 package obj;
 
-import bo.ApartmentBO;
-import bo.BOImplement.ApartmentBOImp;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.jooq.DSLContext;
 import schema.tables.records.ComplaintTeamRecord;
@@ -25,6 +23,8 @@ public class Complaint extends IdName {
     public static final class ColumnName {
         public static final String STATUS_NO = "status_no";
         public static final String CREATE_DATE = "create_date";
+        public static final String START_WORKING_DATE = "start_working_date";
+        public static final String FINSIH_DATE = "finish_date";
     }
 
     @Column(name = User.FOREIGN_KEY_NAME)
@@ -41,6 +41,13 @@ public class Complaint extends IdName {
     private int statusNo = 1;
     @Column(name = ColumnName.CREATE_DATE)
     private Date createDate;
+    @Column(name = ColumnName.CREATE_DATE)
+    private Date startWorkingDate;
+    @Column(name = ColumnName.CREATE_DATE)
+    private Date finsihDate;
+    @Column(name = ColumnName.CREATE_DATE)
+    private String note;
+
 
     private User user = new User();
     private Apartment apartment = new Apartment();
@@ -51,15 +58,15 @@ public class Complaint extends IdName {
 
     public static class ComplaintTeam {
         @Column(name = FOREIGN_KEY_NAME)
-        private int compaintId;
+        private int complaintId;
         @Column(name = Technician.FOREIGN_KEY_NAME)
         private int technicianId;
 
-        public int getCompaintId() {
-            return compaintId;
+        public int getComplaintId() {
+            return complaintId;
         }
-        public void setCompaintId(int compaintId) {
-            this.compaintId = compaintId;
+        public void setComplaintId(int complaintId) {
+            this.complaintId = complaintId;
         }
 
         public int getTechnicianId() {
@@ -120,6 +127,27 @@ public class Complaint extends IdName {
         this.createDate = createDate;
     }
 
+    public Date getStartWorkingDate() {
+        return startWorkingDate;
+    }
+    public void setStartWorkingDate(Date startWorkingDate) {
+        this.startWorkingDate = startWorkingDate;
+    }
+
+    public Date getFinsihDate() {
+        return finsihDate;
+    }
+    public void setFinsihDate(Date finsihDate) {
+        this.finsihDate = finsihDate;
+    }
+
+    public String getNote() {
+        return note;
+    }
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     public User getUser() {
         return user;
     }
@@ -176,7 +204,7 @@ public class Complaint extends IdName {
     }
 
     public void childMap(List<ComplaintTeam> resultChildList, List<Technician> technicianList) {
-        List<ComplaintTeam> childItems = resultChildList.stream().filter(item -> item.getCompaintId() == this.getId()).collect(Collectors.toList());
+        List<ComplaintTeam> childItems = resultChildList.stream().filter(item -> item.getComplaintId() == this.getId()).collect(Collectors.toList());
         for (ComplaintTeam item : childItems) {
             List<Technician> technicians = technicianList.stream().filter(p -> p.getId() == item.getTechnicianId()).collect(Collectors.toList());
             this.setTechnicianList(technicians);

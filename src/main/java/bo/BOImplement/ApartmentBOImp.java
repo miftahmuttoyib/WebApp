@@ -6,6 +6,8 @@ import obj.Apartment;
 
 import java.util.List;
 
+import static helper.Common.zeroFill;
+
 public class ApartmentBOImp extends ApartmentDAO implements ApartmentBO {
 
     @Override
@@ -25,9 +27,9 @@ public class ApartmentBOImp extends ApartmentDAO implements ApartmentBO {
     }
 
     private void generateApartmentCode(Apartment apartment) {
-        String buildingCode  = apartment.getBuilding().getCode();
-        String floorCode = apartment.getFloor().getName();
-        apartment.setCode(buildingCode + floorCode + apartment.getNo());
+        String buildingCode  = String.valueOf(apartment.getBuildingId());
+        String floorCode = String.valueOf(apartment.getFloorId());
+        apartment.setCode(zeroFill(buildingCode) + zeroFill(floorCode) + zeroFill(apartment.getNo()));
     }
 
     @Override

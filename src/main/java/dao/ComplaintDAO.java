@@ -33,16 +33,18 @@ public class ComplaintDAO extends DAO {
         List<Technician> technicianList = technicianBO.getAllTechnician();
         for (Complaint resultItem : resultList) {
             resultItem.childMap(resultChildList, technicianList);
+            mapWithOtherData(resultItem);
         }
         return resultList;
     }
 
     protected Complaint get(int id) {
         Complaint complaint = db.select().from(COMPLAINT).where(COMPLAINT.ID.eq(id)).fetchAny().into(Complaint.class);
-        return mapWithOtherData(complaint);
+        mapWithOtherData(complaint);
+        return complaint;
     }
 
-    private Complaint mapWithOtherData(Complaint complaint) {
+    private void mapWithOtherData(Complaint complaint) {
         User user = db.select().from(USER).where(USER.ID.eq(complaint.getUserId())).fetchAny().into(User.class);
         complaint.setUser(user);
 
@@ -54,12 +56,11 @@ public class ComplaintDAO extends DAO {
         complaint.setProblem(complaint.getFacilities().getProblem(complaint.getProblemId()));
 
         if (complaint.getStatusNo() < 2) {
-            return complaint;
+            return;
         }
         List<Complaint.ComplaintTeam> resultChildList = db.select().from(COMPLAINT_TEAM).where(COMPLAINT_TEAM.COMPLAINT_ID.eq(complaint.getId())).fetch().into(Complaint.ComplaintTeam.class);
         List<Technician> technicianList = technicianBO.getAllTechnician();
         complaint.childMap(resultChildList, technicianList);
-        return complaint;
     }
 
     protected void save(Complaint complaint) {

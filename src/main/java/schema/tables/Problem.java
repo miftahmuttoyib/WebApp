@@ -15,7 +15,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -42,7 +42,7 @@ import schema.tables.records.ProblemRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Problem extends TableImpl<ProblemRecord> {
 
-    private static final long serialVersionUID = 1744662811;
+    private static final long serialVersionUID = -2022732921;
 
     /**
      * The reference instance of <code>webapp.problem</code>
@@ -81,6 +81,11 @@ public class Problem extends TableImpl<ProblemRecord> {
      * The column <code>webapp.problem.execution_time</code>.
      */
     public final TableField<ProblemRecord, Integer> EXECUTION_TIME = createField(DSL.name("execution_time"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>webapp.problem.manpower</code>.
+     */
+    public final TableField<ProblemRecord, Integer> MANPOWER = createField(DSL.name("manpower"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * Create a <code>webapp.problem</code> table reference
@@ -167,11 +172,11 @@ public class Problem extends TableImpl<ProblemRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, String, Integer, String, Integer> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Integer, String, Integer, String, Integer, Integer> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 }

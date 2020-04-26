@@ -12,9 +12,11 @@ public interface ComplaintBO {
     Complaint getComplaintById(String id);
 
     void saveComplaint(Complaint complaint);
+    Complaint updateComplaint(String id);
     void updateComplaint(Complaint complaint, int statusNo);
 
     void deleteComplaint(String id);
 
     Complaint finishComplaint(String id);
+    Complaint startComplaint(String id);
 }

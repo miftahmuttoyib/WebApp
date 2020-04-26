@@ -72,6 +72,7 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     public static final UniqueKey<ApartmentRecord> KEY_APARTMENT_PRIMARY = UniqueKeys0.KEY_APARTMENT_PRIMARY;
+    public static final UniqueKey<ApartmentRecord> KEY_APARTMENT_CODE_UNIQUE = UniqueKeys0.KEY_APARTMENT_CODE_UNIQUE;
     public static final UniqueKey<ApartmentRoomRecord> KEY_APARTMENT_ROOM_PRIMARY = UniqueKeys0.KEY_APARTMENT_ROOM_PRIMARY;
     public static final UniqueKey<BuildingRecord> KEY_BUILDING_PRIMARY = UniqueKeys0.KEY_BUILDING_PRIMARY;
     public static final UniqueKey<BuildingRecord> KEY_BUILDING_CODE_UNIQUE = UniqueKeys0.KEY_BUILDING_CODE_UNIQUE;
@@ -127,6 +128,7 @@ public class Keys {
 
     private static class UniqueKeys0 {
         public static final UniqueKey<ApartmentRecord> KEY_APARTMENT_PRIMARY = Internal.createUniqueKey(Apartment.APARTMENT, "KEY_apartment_PRIMARY", Apartment.APARTMENT.ID);
+        public static final UniqueKey<ApartmentRecord> KEY_APARTMENT_CODE_UNIQUE = Internal.createUniqueKey(Apartment.APARTMENT, "KEY_apartment_code_UNIQUE", Apartment.APARTMENT.CODE);
         public static final UniqueKey<ApartmentRoomRecord> KEY_APARTMENT_ROOM_PRIMARY = Internal.createUniqueKey(ApartmentRoom.APARTMENT_ROOM, "KEY_apartment_room_PRIMARY", ApartmentRoom.APARTMENT_ROOM.APARTMENT_ID, ApartmentRoom.APARTMENT_ROOM.ROOM_ID);
         public static final UniqueKey<BuildingRecord> KEY_BUILDING_PRIMARY = Internal.createUniqueKey(Building.BUILDING, "KEY_building_PRIMARY", Building.BUILDING.ID);
         public static final UniqueKey<BuildingRecord> KEY_BUILDING_CODE_UNIQUE = Internal.createUniqueKey(Building.BUILDING, "KEY_building_code_UNIQUE", Building.BUILDING.CODE);

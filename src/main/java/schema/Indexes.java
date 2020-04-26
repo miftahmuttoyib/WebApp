@@ -44,6 +44,7 @@ public class Indexes {
 
     public static final Index APARTMENT_APARTMENT_IBFK_1_IDX = Indexes0.APARTMENT_APARTMENT_IBFK_1_IDX;
     public static final Index APARTMENT_APARTMENT_IBFK_2_IDX = Indexes0.APARTMENT_APARTMENT_IBFK_2_IDX;
+    public static final Index APARTMENT_CODE_UNIQUE = Indexes0.APARTMENT_CODE_UNIQUE;
     public static final Index APARTMENT_PRIMARY = Indexes0.APARTMENT_PRIMARY;
     public static final Index APARTMENT_ROOM_PRIMARY = Indexes0.APARTMENT_ROOM_PRIMARY;
     public static final Index APARTMENT_ROOM_ROOM_ID = Indexes0.APARTMENT_ROOM_ROOM_ID;
@@ -78,6 +79,7 @@ public class Indexes {
     private static class Indexes0 {
         public static Index APARTMENT_APARTMENT_IBFK_1_IDX = Internal.createIndex("apartment_ibfk_1_idx", Apartment.APARTMENT, new OrderField[] { Apartment.APARTMENT.BUILDING_ID }, false);
         public static Index APARTMENT_APARTMENT_IBFK_2_IDX = Internal.createIndex("apartment_ibfk_2_idx", Apartment.APARTMENT, new OrderField[] { Apartment.APARTMENT.FLOOR_ID }, false);
+        public static Index APARTMENT_CODE_UNIQUE = Internal.createIndex("code_UNIQUE", Apartment.APARTMENT, new OrderField[] { Apartment.APARTMENT.CODE }, true);
         public static Index APARTMENT_PRIMARY = Internal.createIndex("PRIMARY", Apartment.APARTMENT, new OrderField[] { Apartment.APARTMENT.ID }, true);
         public static Index APARTMENT_ROOM_PRIMARY = Internal.createIndex("PRIMARY", ApartmentRoom.APARTMENT_ROOM, new OrderField[] { ApartmentRoom.APARTMENT_ROOM.APARTMENT_ID, ApartmentRoom.APARTMENT_ROOM.ROOM_ID }, true);
         public static Index APARTMENT_ROOM_ROOM_ID = Internal.createIndex("room_id", ApartmentRoom.APARTMENT_ROOM, new OrderField[] { ApartmentRoom.APARTMENT_ROOM.ROOM_ID }, false);

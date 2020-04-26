@@ -10,7 +10,7 @@ import java.sql.Date;
 import static stdc.IdName.ColumnName.ID;
 
 public class Technician extends IdName {
-    public static final String TABLE_NAME = "facilities";
+    public static final String TABLE_NAME = "technician";
     public static final String FOREIGN_KEY_NAME = TABLE_NAME + "_" + ID;
 
     public static final class ColumnName {

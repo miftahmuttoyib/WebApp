@@ -21,7 +21,7 @@ public class Apartment extends IdName {
 
     public static class ColumnName {
         public static final String CODE = "code";
-        public static final String NO = "NO";
+        public static final String NO = "no";
         public static final String FLOOR = Floor.FOREIGN_KEY_NAME;
         public static final String BUILDING = Building.FOREIGN_KEY_NAME;
     }
@@ -33,7 +33,7 @@ public class Apartment extends IdName {
     @Column(name = ColumnName.CODE)
     private String code = "";
     @Column(name = ColumnName.NO)
-    private String no = "";
+    private int no;
     @Column(name = ColumnName.BUILDING)
     private int buildingId;
     @Column(name = ColumnName.FLOOR)
@@ -71,10 +71,10 @@ public class Apartment extends IdName {
         this.code = code;
     }
 
-    public String getNo() {
+    public int getNo() {
         return no;
     }
-    public void setNo(String no) {
+    public void setNo(int no) {
         this.no = no;
     }
 
@@ -117,7 +117,7 @@ public class Apartment extends IdName {
         this.roomList = roomList;
     }
     public void addAllRoom(List<Room> roomList) {
-        this.roomList = roomList;
+        this.roomList.addAll(roomList);
     }
 
     public List<ApartmentRoomRecord> createChildRecord(DSLContext db) {

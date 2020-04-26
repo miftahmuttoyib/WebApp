@@ -15,7 +15,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -42,7 +42,7 @@ import schema.tables.records.ApartmentRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Apartment extends TableImpl<ApartmentRecord> {
 
-    private static final long serialVersionUID = -974981179;
+    private static final long serialVersionUID = 456634537;
 
     /**
      * The reference instance of <code>webapp.apartment</code>
@@ -81,6 +81,11 @@ public class Apartment extends TableImpl<ApartmentRecord> {
      * The column <code>webapp.apartment.floor_id</code>.
      */
     public final TableField<ApartmentRecord, Integer> FLOOR_ID = createField(DSL.name("floor_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>webapp.apartment.no</code>.
+     */
+    public final TableField<ApartmentRecord, Integer> NO = createField(DSL.name("no"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * Create a <code>webapp.apartment</code> table reference
@@ -122,7 +127,7 @@ public class Apartment extends TableImpl<ApartmentRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.APARTMENT_APARTMENT_IBFK_1_IDX, Indexes.APARTMENT_APARTMENT_IBFK_2_IDX, Indexes.APARTMENT_PRIMARY);
+        return Arrays.<Index>asList(Indexes.APARTMENT_APARTMENT_IBFK_1_IDX, Indexes.APARTMENT_APARTMENT_IBFK_2_IDX, Indexes.APARTMENT_CODE_UNIQUE, Indexes.APARTMENT_PRIMARY);
     }
 
     @Override
@@ -137,7 +142,7 @@ public class Apartment extends TableImpl<ApartmentRecord> {
 
     @Override
     public List<UniqueKey<ApartmentRecord>> getKeys() {
-        return Arrays.<UniqueKey<ApartmentRecord>>asList(Keys.KEY_APARTMENT_PRIMARY);
+        return Arrays.<UniqueKey<ApartmentRecord>>asList(Keys.KEY_APARTMENT_PRIMARY, Keys.KEY_APARTMENT_CODE_UNIQUE);
     }
 
     @Override
@@ -180,11 +185,11 @@ public class Apartment extends TableImpl<ApartmentRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, String, Integer, Integer, Integer> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Integer, String, Integer, Integer, Integer, Integer> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 }

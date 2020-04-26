@@ -21,24 +21,38 @@ public class ComplaintService extends HttpServlet {
     }
 
     @GET
-    @Path("get")
+    @Path("get/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Complaint getComplaint(@QueryParam("id") String id) {
+    public Complaint getComplaint(@PathParam("id") String id) {
         return complaintBO.getComplaintById(id);
     }
 
     @GET
     @Path("get/spk/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Complaint getSpk(@QueryParam("id") String id) {
+    public Complaint getSpk(@PathParam("id") String id) {
         return complaintBO.getComplaintById(id);
     }
 
     @GET
     @Path("get/finish/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Complaint finishComplaint(@QueryParam("id") String id) {
+    public Complaint finishComplaint(@PathParam("id") String id) {
         return complaintBO.finishComplaint(id);
+    }
+
+    @GET
+    @Path("get/start/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Complaint startComplaint(@PathParam("id") String id) {
+        return complaintBO.startComplaint(id);
+    }
+
+    @GET
+    @Path("get/update/status/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Complaint updateComplaint(@PathParam("id") String id) {
+        return complaintBO.updateComplaint(id);
     }
 
     @POST

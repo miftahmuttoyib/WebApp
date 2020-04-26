@@ -16,7 +16,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row8;
+import org.jooq.Row11;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -43,7 +43,7 @@ import schema.tables.records.ComplaintRecord;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Complaint extends TableImpl<ComplaintRecord> {
 
-    private static final long serialVersionUID = 343568700;
+    private static final long serialVersionUID = -1495621015;
 
     /**
      * The reference instance of <code>webapp.complaint</code>
@@ -97,6 +97,21 @@ public class Complaint extends TableImpl<ComplaintRecord> {
      * The column <code>webapp.complaint.create_date</code>.
      */
     public final TableField<ComplaintRecord, Timestamp> CREATE_DATE = createField(DSL.name("create_date"), org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
+
+    /**
+     * The column <code>webapp.complaint.start_working_date</code>.
+     */
+    public final TableField<ComplaintRecord, Timestamp> START_WORKING_DATE = createField(DSL.name("start_working_date"), org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.inline("1990-01-01 00:00:00", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+
+    /**
+     * The column <code>webapp.complaint.finish_date</code>.
+     */
+    public final TableField<ComplaintRecord, Timestamp> FINISH_DATE = createField(DSL.name("finish_date"), org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.inline("1990-01-01 00:00:00", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+
+    /**
+     * The column <code>webapp.complaint.note</code>.
+     */
+    public final TableField<ComplaintRecord, String> NOTE = createField(DSL.name("note"), org.jooq.impl.SQLDataType.VARCHAR(300).nullable(false), this, "");
 
     /**
      * Create a <code>webapp.complaint</code> table reference
@@ -208,11 +223,11 @@ public class Complaint extends TableImpl<ComplaintRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row11 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Timestamp> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row11<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Timestamp, Timestamp, Timestamp, String> fieldsRow() {
+        return (Row11) super.fieldsRow();
     }
 }
