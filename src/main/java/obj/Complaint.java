@@ -24,7 +24,8 @@ public class Complaint extends IdName {
         public static final String STATUS_NO = "status_no";
         public static final String CREATE_DATE = "create_date";
         public static final String START_WORKING_DATE = "start_working_date";
-        public static final String FINSIH_DATE = "finish_date";
+        public static final String FINISH_DATE = "finish_date";
+        public static final String NOTE = "note";
     }
 
     @Column(name = User.FOREIGN_KEY_NAME)
@@ -41,12 +42,12 @@ public class Complaint extends IdName {
     private int statusNo = 1;
     @Column(name = ColumnName.CREATE_DATE)
     private Date createDate;
-    @Column(name = ColumnName.CREATE_DATE)
+    @Column(name = ColumnName.START_WORKING_DATE)
     private Date startWorkingDate;
-    @Column(name = ColumnName.CREATE_DATE)
-    private Date finsihDate;
-    @Column(name = ColumnName.CREATE_DATE)
-    private String note;
+    @Column(name = ColumnName.FINISH_DATE)
+    private Date finishDate;
+    @Column(name = ColumnName.NOTE)
+    private String note = "";
 
 
     private User user = new User();
@@ -134,11 +135,11 @@ public class Complaint extends IdName {
         this.startWorkingDate = startWorkingDate;
     }
 
-    public Date getFinsihDate() {
-        return finsihDate;
+    public Date getFinishDate() {
+        return finishDate;
     }
-    public void setFinsihDate(Date finsihDate) {
-        this.finsihDate = finsihDate;
+    public void setFinishDate(Date finishDate) {
+        this.finishDate = finishDate;
     }
 
     public String getNote() {
@@ -191,6 +192,12 @@ public class Complaint extends IdName {
     public void setTechnicianList(List<Technician> technicianList) {
         this.technicianList = technicianList;
     }
+    public void addTechnician(Technician technician) {
+        this.technicianList.add(technician);
+    }
+    public void addAllTechnician(List<Technician> technicianList) {
+        this.technicianList.addAll(technicianList);
+    }
 
     public List<ComplaintTeamRecord> createChildRecord(DSLContext db) {
         List<ComplaintTeamRecord> resultList = new ArrayList<>();
@@ -207,7 +214,7 @@ public class Complaint extends IdName {
         List<ComplaintTeam> childItems = resultChildList.stream().filter(item -> item.getComplaintId() == this.getId()).collect(Collectors.toList());
         for (ComplaintTeam item : childItems) {
             List<Technician> technicians = technicianList.stream().filter(p -> p.getId() == item.getTechnicianId()).collect(Collectors.toList());
-            this.setTechnicianList(technicians);
+            this.addAllTechnician(technicians);
         }
     }
 }

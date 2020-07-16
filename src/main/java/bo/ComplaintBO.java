@@ -14,6 +14,7 @@ public interface ComplaintBO {
     void saveComplaint(Complaint complaint);
     Complaint updateComplaint(String id);
     void updateComplaint(Complaint complaint, int statusNo);
+    Complaint updateComplaint(String id, int statusNo);
 
     void deleteComplaint(String id);
 

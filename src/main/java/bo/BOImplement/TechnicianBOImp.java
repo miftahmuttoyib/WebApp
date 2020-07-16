@@ -70,4 +70,10 @@ public class TechnicianBOImp extends TechnicianDAO implements TechnicianBO {
     public void freeTechnician(List<Technician> technicianList) {
         updateStatus(technicianList);
     }
+
+    @Override
+    public void serveTechnician(List<Technician> technicianList) {
+        updateStatus(technicianList);
+    }
+
 }

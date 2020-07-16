@@ -32,6 +32,7 @@ public class ComplaintScheduler implements Runnable {
 
     private void serveComplaint(Complaint complaint) {
         List<Technician> team = orderTeam(complaint.getProblemId());
+        if(team.size() == 0) return;
         complaint.setTechnicianList(team);
         complaintBO.updateComplaint(complaint, 2);
     }
@@ -48,7 +49,6 @@ public class ComplaintScheduler implements Runnable {
         technicianBO.updateStatus(technicianList);
         return technicianList;
     }
-
     private Complaint sortComplain(List<Complaint> complaintList) {
         List<Complaint> highestPriorityComplain = selectComplainByPriority(complaintList);
         if (highestPriorityComplain.size() == 1) {
@@ -62,22 +62,18 @@ public class ComplaintScheduler implements Runnable {
             }
         }
     }
-
     private List<Complaint> selectComplainByPriority(List<Complaint> complaintList) {
         int highestPriorityNumber = getHighestPriorityNumber(complaintList);
         return complaintList.stream().filter(complain -> complain.getApartment().getRoom(complain.getRoomId()).getFacilities(complain.getFacilitiesId()).getProblem(complain.getProblemId()).getPriority() == highestPriorityNumber).collect(Collectors.toList());
     }
-
     private List<Complaint> selectComplainByShortestJob(List<Complaint> complaintList) {
         int shortestNumber = getShortestNumber(complaintList);
         return complaintList.stream().filter(complain -> complain.getApartment().getRoom(complain.getRoomId()).getFacilities(complain.getFacilitiesId()).getProblem(complain.getProblemId()).getExecutionTime() == shortestNumber).collect(Collectors.toList());
     }
-
     private Complaint getFirsQueueComplain(List<Complaint> complaintList) {
         complaintList.sort(Comparator.comparing(Complaint::getCreateDate));
         return complaintList.get(0);
     }
-
     private int getHighestPriorityNumber(List<Complaint> complaintList) {
         int result = 0;
         for (Complaint complain : complaintList) {
@@ -89,10 +85,10 @@ public class ComplaintScheduler implements Runnable {
             if (priority < result) {
                 result = priority;
             }
+            String a = String.valueOf(result);
         }
         return result;
     }
-
     private int getShortestNumber(List<Complaint> complaintList) {
         int result = 0;
         for (Complaint complain : complaintList) {
@@ -108,3 +104,5 @@ public class ComplaintScheduler implements Runnable {
         return result;
     }
 }
+
+

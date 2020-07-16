@@ -49,10 +49,10 @@ public class ComplaintService extends HttpServlet {
     }
 
     @GET
-    @Path("get/update/status/{id}")
+    @Path("get/update/status/{id}/{statusNo}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Complaint updateComplaint(@PathParam("id") String id) {
-        return complaintBO.updateComplaint(id);
+    public Complaint updateComplaint(@PathParam("id") String id, @PathParam("statusNo") int statusNo) {
+        return complaintBO.updateComplaint(id, statusNo);
     }
 
     @POST

@@ -29,10 +29,7 @@ public class ComplaintDAO extends DAO {
 
     protected List<Complaint> getAll() {
         List<Complaint> resultList = db.select().from(COMPLAINT).fetch().into(Complaint.class);
-        List<Complaint.ComplaintTeam> resultChildList = db.select().from(COMPLAINT_TEAM).fetch().into(Complaint.ComplaintTeam.class);
-        List<Technician> technicianList = technicianBO.getAllTechnician();
         for (Complaint resultItem : resultList) {
-            resultItem.childMap(resultChildList, technicianList);
             mapWithOtherData(resultItem);
         }
         return resultList;
@@ -78,5 +75,10 @@ public class ComplaintDAO extends DAO {
         List<ComplaintTeamRecord> childRecords = complaint.createChildRecord(db);
         Batch batch = db.batchStore(childRecords);
         batch.execute();
+    }
+
+    protected void updateParentOnly(Complaint complaint) {
+        ComplaintRecord newRecord = db.newRecord(COMPLAINT, complaint);
+        newRecord.update();
     }
 }

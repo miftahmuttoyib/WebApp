@@ -15,4 +15,6 @@ public interface TechnicianBO {
     void updateStatus(List<Technician> technicianList);
 
     void freeTechnician(List<Technician> technicianList);
+
+    void serveTechnician(List<Technician> technicianList);
 }
