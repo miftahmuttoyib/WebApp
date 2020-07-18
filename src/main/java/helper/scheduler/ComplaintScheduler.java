@@ -8,6 +8,7 @@ import bo.ProblemBO;
 import bo.TechnicianBO;
 import obj.*;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,8 +26,10 @@ public class ComplaintScheduler implements Runnable {
             Complaint complaint = complaintList.get(0);
             serveComplaint(complaint);
         } else {
-            Complaint highestPriorityComplain = sortComplain(complaintList);
-            serveComplaint(highestPriorityComplain);
+            List<Complaint> sortedComplain = sortComplain(complaintList);
+            for (Complaint highestPriorityComplain:sortedComplain) {
+                serveComplaint(highestPriorityComplain);
+            }
         }
     }
 
@@ -49,18 +52,22 @@ public class ComplaintScheduler implements Runnable {
         technicianBO.updateStatus(technicianList);
         return technicianList;
     }
-    private Complaint sortComplain(List<Complaint> complaintList) {
-        List<Complaint> highestPriorityComplain = selectComplainByPriority(complaintList);
-        if (highestPriorityComplain.size() == 1) {
-            return highestPriorityComplain.get(0);
-        } else {
-            List<Complaint> shortestComplain = selectComplainByShortestJob(highestPriorityComplain);
-            if (shortestComplain.size() == 1) {
-                return shortestComplain.get(0);
+    private List<Complaint> sortComplain(List<Complaint> complaintList) {
+        List<Complaint> sortedList = new ArrayList<>();
+        do {
+            List<Complaint> highestPriorityComplain = selectComplainByPriority(complaintList);
+            if (highestPriorityComplain.size() == 1) {
+                sortedList.add(highestPriorityComplain.get(0));
             } else {
-                return getFirsQueueComplain(complaintList);
+                List<Complaint> shortestComplain = selectComplainByShortestJob(highestPriorityComplain);
+                if (shortestComplain.size() == 1) {
+                    sortedList.add(shortestComplain.get(0));
+                } else {
+                    sortedList.add(getFirsQueueComplain(complaintList));
+                }
             }
-        }
+        } while (complaintList.size() == sortedList.size());
+        return sortedList;
     }
     private List<Complaint> selectComplainByPriority(List<Complaint> complaintList) {
         int highestPriorityNumber = getHighestPriorityNumber(complaintList);

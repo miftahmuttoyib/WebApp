@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c76b646c-b337-41af-9af1-d4bd5756be66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMG-20200325-WA0023-corped.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMG-20200325-WA0023.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMG-20200525-WA0036.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMG-20200525-WA0037.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMG_20200417_141442.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMG_20200417_184709.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/TechnicianDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/TechnicianDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/helper/BackgroundJobManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/BackgroundJobManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helper/scheduler/ComplaintScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/scheduler/ComplaintScheduler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -362,7 +355,7 @@
       <workItem from="1593440863906" duration="826000" />
       <workItem from="1594559444989" duration="16734000" />
       <workItem from="1594674484695" duration="4673000" />
-      <workItem from="1594939735764" duration="6040000" />
+      <workItem from="1594939735764" duration="8598000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1573904250209</created>
@@ -483,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594942171141</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Tech - filter by availability status&#10;other - remove unused thing in repo">
+      <created>1595078045858</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1595078045858</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,22 +522,7 @@
     <MESSAGE value="Apartment - code and apartment number" />
     <MESSAGE value="Helper - common - zerofill&#10;Problem - add manpower&#10;Complaint - start working date, finish date" />
     <MESSAGE value="Complaint - update status&#10;Complaint - note" />
-    <option name="LAST_COMMIT_MESSAGE" value="Complaint - update status&#10;Complaint - note" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dao/ComplaintDAO.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dao/ComplaintDAO.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Tech - filter by availability status&#10;other - remove unused thing in repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tech - filter by availability status&#10;other - remove unused thing in repo" />
   </component>
 </project>
