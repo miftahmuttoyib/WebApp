@@ -6,6 +6,7 @@ import bo.BOImplement.TechnicianBOImp;
 import bo.ComplaintBO;
 import bo.ProblemBO;
 import bo.TechnicianBO;
+import dao.DAO;
 import obj.*;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class ComplaintScheduler implements Runnable {
             serveComplaint(complaint);
         } else {
             List<Complaint> sortedComplain = sortComplain(complaintList);
-            for (Complaint highestPriorityComplain:sortedComplain) {
+            for (Complaint highestPriorityComplain : sortedComplain) {
                 serveComplaint(highestPriorityComplain);
             }
         }
@@ -58,15 +59,19 @@ public class ComplaintScheduler implements Runnable {
             List<Complaint> highestPriorityComplain = selectComplainByPriority(complaintList);
             if (highestPriorityComplain.size() == 1) {
                 sortedList.add(highestPriorityComplain.get(0));
+                complaintList.removeIf(item -> highestPriorityComplain.get(0).getId() == item.getId());
             } else {
                 List<Complaint> shortestComplain = selectComplainByShortestJob(highestPriorityComplain);
                 if (shortestComplain.size() == 1) {
                     sortedList.add(shortestComplain.get(0));
+                    complaintList.removeIf(item -> shortestComplain.get(0).getId() == item.getId());
                 } else {
-                    sortedList.add(getFirsQueueComplain(complaintList));
+                    Complaint earlierComplain = getFirsQueueComplain(complaintList);
+                    sortedList.add(earlierComplain);
+                    complaintList.removeIf(item -> earlierComplain.getId() == item.getId());
                 }
             }
-        } while (complaintList.size() == sortedList.size());
+        } while (complaintList.size() > 0);
         return sortedList;
     }
     private List<Complaint> selectComplainByPriority(List<Complaint> complaintList) {

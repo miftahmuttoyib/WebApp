@@ -3,6 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="c76b646c-b337-41af-9af1-d4bd5756be66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ApartmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ApartmentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/BuildingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/BuildingDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ComplaintDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ComplaintDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FacilitiesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/FacilitiesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FloorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/FloorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ProblemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ProblemDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RoomDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RoomDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/TechnicianDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/TechnicianDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helper/BackgroundJobManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/BackgroundJobManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/helper/scheduler/ComplaintScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/helper/scheduler/ComplaintScheduler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -355,7 +365,7 @@
       <workItem from="1593440863906" duration="826000" />
       <workItem from="1594559444989" duration="16734000" />
       <workItem from="1594674484695" duration="4673000" />
-      <workItem from="1594939735764" duration="8598000" />
+      <workItem from="1594939735764" duration="14964000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1573904250209</created>
@@ -483,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595078045858</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Complaint scheduler - now sortList() will return sorted complaint list that will be serve one by one until the end of the list">
+      <created>1595081202991</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1595081202991</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,6 +540,7 @@
     <MESSAGE value="Helper - common - zerofill&#10;Problem - add manpower&#10;Complaint - start working date, finish date" />
     <MESSAGE value="Complaint - update status&#10;Complaint - note" />
     <MESSAGE value="Tech - filter by availability status&#10;other - remove unused thing in repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tech - filter by availability status&#10;other - remove unused thing in repo" />
+    <MESSAGE value="Complaint scheduler - now sortList() will return sorted complaint list that will be serve one by one until the end of the list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complaint scheduler - now sortList() will return sorted complaint list that will be serve one by one until the end of the list" />
   </component>
 </project>

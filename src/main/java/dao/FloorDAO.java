@@ -13,12 +13,16 @@ public class FloorDAO extends DAO {
     }
 
     protected void save(Floor floor) {
+        openConnection();
         FloorRecord newRecord = db.newRecord(FLOOR, floor);
         newRecord.store();
+        closeConnection();
     }
 
     protected void delete(String id) {
+        openConnection();
         FloorRecord selectedRecord = db.fetchOne(FLOOR, FLOOR.ID.eq(Integer.parseInt(id)));
         selectedRecord.delete();
+        closeConnection();
     }
 }
