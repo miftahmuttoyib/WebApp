@@ -74,6 +74,7 @@ public class ComplaintScheduler implements Runnable {
         } while (complaintList.size() > 0);
         return sortedList;
     }
+
     private List<Complaint> selectComplainByPriority(List<Complaint> complaintList) {
         int highestPriorityNumber = getHighestPriorityNumber(complaintList);
         return complaintList.stream().filter(complain -> complain.getApartment().getRoom(complain.getRoomId()).getFacilities(complain.getFacilitiesId()).getProblem(complain.getProblemId()).getPriority() == highestPriorityNumber).collect(Collectors.toList());

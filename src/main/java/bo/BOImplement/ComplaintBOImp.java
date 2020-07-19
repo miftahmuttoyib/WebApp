@@ -55,6 +55,17 @@ public class ComplaintBOImp extends ComplaintDAO implements ComplaintBO {
     @Override
     public Complaint updateComplaint(String id, int statusNo) {
         Complaint complaint = getComplaintById(id);
+        switch (statusNo) {
+            case 3: {
+                complaint.setStartWorkingDate(new Date(new java.util.Date().getTime()));
+                break;
+            }
+            case 4: {
+                complaint.setFinishDate(new Date(new java.util.Date().getTime()));
+                List<Technician> TechnicianList = complaint.getTechnicianList();
+                technicianBO.freeTechnician(TechnicianList);
+            }
+        }
         this.updateStatusComplaint(complaint, statusNo);
         return complaint;
     }
